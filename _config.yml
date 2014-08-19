@@ -9,13 +9,12 @@ pygments: true
 # so be sure to set them if your theme uses them.
 #
 title : 左.的博客
-tagline: Site Tagline
+tagline: 右领军大都督的世界你不懂
 author :
-  name : Name Lastname
-  email : blah@email.test
-  github : username
-  twitter : username
-  feedburner : feedname
+  name : Howard.Zuo
+  email : leftstick@qq.com
+  github : leftstick
+  weibo: 1837649133
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
