@@ -3,6 +3,7 @@ layout: page
 title: 首页
 tagline: 沙滩一卧两年半，今日浪打我翻身
 group: navigation
+position: 1
 ---
 {% include JB/setup %}
 
