@@ -34,8 +34,7 @@
   </head>
 
   <body>
-    <div id="page-wrap">
-      <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
           <div class="container">
             <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -109,7 +108,8 @@
           </div>
         </div>
       </div>
-
+    <div class="empty-shelf"></div>
+    <div id="page-wrap">
       <div class="container">
         <div class="content">
           {{ content }}
@@ -129,6 +129,6 @@
 
     <script src="{{ ASSET_PATH }}/js/jquery.min.js"></script>
     <script src="{{ ASSET_PATH }}/bootstrap/js/bootstrap.min.js"></script>
-
+    {% include JB/analytics %}
   </body>
 </html>

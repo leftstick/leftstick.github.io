@@ -1,26 +1,28 @@
-/*fixed navbar-fixed-top*/
+/* 
+ * for fixed nav bar
+ * include header and footer
+ *
+ */
+html, body{
+    height: 100%;
+    min-height: 100%;
+}
 body{
-    padding-top: 40px;
-    height: 100%;
+    position: relative;
+    height: auto !important;
 }
-html{
-    height: 100%;
-}
-
 .empty-shelf{
     display: block;
     height: 40px;
-    position: relative;
+    min-height: 40px;
 }
-
-#page-wrap{
-    min-height: 100%;
-    height: auto !important;
-}
-
-
-/*fixed footer at bottom*/
 footer .container{
+    position: absolute;
     text-align: center;
     bottom: 0;
+    width: 100%;
+}
+
+#page-wrap .container .content{
+    padding-bottom: 27px;
 }
