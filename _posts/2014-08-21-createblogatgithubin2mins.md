@@ -23,36 +23,36 @@ tags: ["blog", "github"]
 
 1. 创建一个新的代码仓库，该仓库的名字必须按照如下格式：
 
-    `<Github username>.github.com`
+`<Github username>.github.com`
 
-    譬如，我的这个仓库名字为：leftstick.github.com
+譬如，我的这个仓库名字为：leftstick.github.com
 
-    > 以下步骤凡引用到`Github`用户名的地方，用`example`代替
+> 以下步骤凡引用到`Github`用户名的地方，用`example`代替
 
 2. 安装`Jekyll-Bootstrap`
 
-    在命令行中，移动到一个你想要保存你的博客站的目录，执行如下命令：
+在命令行中，移动到一个你想要保存你的博客站的目录，执行如下命令：
 
-        git clone https://github.com/plusjade/jekyll-bootstrap.git example.github.com
-        cd example.github.com
-        git remote set-url origin git@github.com:example/example.github.com.git
-        git push origin master
+    git clone https://github.com/plusjade/jekyll-bootstrap.git example.github.com
+    cd example.github.com
+    git remote set-url origin git@github.com:example/example.github.com.git
+    git push origin master
 
 3. 静心、安坐
     
-    现在，让我们一起喝杯咖啡、或者可以尿个尿(尿他个5分钟，尿出一片天)
+现在，让我们一起喝杯咖啡、或者可以尿个尿(尿他个5分钟，尿出一片天)
 
-    打开浏览器，输入`http://example.github.io/`，回车，欣赏你刚刚完成的作品吧！
+打开浏览器，输入`http://example.github.io/`，回车，欣赏你刚刚完成的作品吧！
 
 
-- 博客站已经创建完毕，但里面的内容不是我自己写的啊？
+### 博客站已经创建完毕，但里面的内容不是我自己写的啊？ ###
     
-    没错，那是`Jekyll-Bootstrap`预置的内容，需要自己改的
+没错，那是`Jekyll-Bootstrap`预置的内容，需要自己改的
 
-- 怎么写自己的博客？
+### 怎么写自己的博客？ ###
     
-    欲知后事如何？且看下回分解！
+欲知后事如何？且看下回分解！
 
-- 样子不够屌，可不可以换？
+### 样子不够屌，可不可以换？ ###
   
-    莫慌，饭要一口一口吃！后面会说的!
+莫慌，饭要一口一口吃！后面会说的!
