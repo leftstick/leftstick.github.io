@@ -6,7 +6,7 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 
 #custom
 encoding: utf-8
-highlighter: pygments
+highlighter: true
 kramdown:
   input : GFM
 safe: true

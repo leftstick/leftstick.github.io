@@ -26,6 +26,7 @@ tags: ["blog", "github"]
    `<Github username>.github.com`，譬如，我的这个仓库名字为：leftstick.github.com
 
    > 以下步骤凡引用到`Github`用户名的地方，用`example`代替
+
 2. 安装`Jekyll-Bootstrap`
 
    在命令行中，移动到一个你想要保存你的博客站的目录，执行如下命令：
