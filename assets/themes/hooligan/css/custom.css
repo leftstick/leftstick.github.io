@@ -26,3 +26,12 @@ footer .container{
 #page-wrap .container .content{
     padding-bottom: 27px;
 }
+
+/**
+ *
+ * language syntax highlight
+ *
+ **/
+code.hljs{
+    font-size: 14px;
+}
