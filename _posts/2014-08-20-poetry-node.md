@@ -7,6 +7,7 @@ tags: ["poetry", "node", "tech"]
 ---
 {% include JB/setup %}
 
+```JavaScript
     'use strict'
 
     var plan;
@@ -37,3 +38,4 @@ tags: ["poetry", "node", "tech"]
     ;摔了，爬起来继续
     ;赢了，还要再往前走
     ;死了，没留下任何遗憾
+```
