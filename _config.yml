@@ -7,9 +7,7 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 #custom
 highlighter: pygments
 kramdown:
-  input : GFM
-redcarpet:
-  extensions: ["fenced_code_blocks", "fenced_code_blocks"]
+  input : "GFM"
 safe: true
 lsi: false
 
