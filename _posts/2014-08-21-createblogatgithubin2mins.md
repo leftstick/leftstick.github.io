@@ -22,12 +22,10 @@ tags: ["blog", "github"]
 来，咱们开始！
 
 1. 创建一个新的代码仓库，该仓库的名字必须按照如下格式：
-
    `<Github username>.github.com`
-
    譬如，我的这个仓库名字为：leftstick.github.com
-
    > 以下步骤凡引用到`Github`用户名的地方，用`example`代替
+
 2. 安装`Jekyll-Bootstrap`
 
    在命令行中，移动到一个你想要保存你的博客站的目录，执行如下命令：
@@ -36,6 +34,7 @@ tags: ["blog", "github"]
     cd example.github.com
     git remote set-url origin git@github.com:example/example.github.com.git
     git push origin master
+
 3. 静心、安坐
     
 现在，让我们一起喝杯咖啡、或者可以尿个尿(尿他个5分钟，尿出一片天)
