@@ -28,15 +28,15 @@ tags: ["blog", "github"]
    > 以下步骤凡引用到`Github`用户名的地方，用`example`代替
 
 2. 安装`Jekyll-Bootstrap`
-
+   
    在命令行中，移动到一个你想要保存你的博客站的目录，执行如下命令：
 
-```Shell
+{% highlight PowerShell %} 
    git clone https://github.com/plusjade/jekyll-bootstrap.git example.github.com
    cd example.github.com
    git remote set-url origin git@github.com:example/example.github.com.git
    git push origin master
-```
+{% endhighlight %}
 
 3. 静心、安坐
     

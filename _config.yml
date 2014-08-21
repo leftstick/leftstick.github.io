@@ -3,15 +3,13 @@
 permalink: /:categories/:year/:month/:day/:title 
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-pygments: true
 
 #custom
-pygments: true
+highlighter: pygments
 kramdown:
   input : GFM
 redcarpet:
   extensions: ["fenced_code_blocks", "fenced_code_blocks"]
-highlighter: pygments
 safe: true
 lsi: false
 
