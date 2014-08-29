@@ -7,29 +7,31 @@ tags: ["poetry", "node", "tech"]
 ---
 {% include JB/setup %}
 
-    'use strict'
+```JavaScript
+'use strict'
 
-    var plan;
-    var steps = {
-        '?': 'Go doing something else',
-        'success': 'Yeah, go for next target',
-        'failure': 'Get up, try it again'
-    };
+var plan;
+var steps = {
+    '?': 'Go doing something else',
+    'success': 'Yeah, go for next target',
+    'failure': 'Get up, try it again'
+};
 
-    var random = function(things){
-        var index = Math.floor(Math.random() * things.length);
-        return things[index];
-    };
+var random = function(things){
+    var index = Math.floor(Math.random() * things.length);
+    return things[index];
+};
 
-    while(true){
-        console.log('Life is a long trip');
-        plan = random(Object.keys(steps));
-        console.log(steps[plan]);
-        if(random(['live', 'die']) === 'die'){
-            console.log('Fuck, am i dead now?');
-            return;
-        }
+while(true){
+    console.log('Life is a long trip');
+    plan = random(Object.keys(steps));
+    console.log(steps[plan]);
+    if(random(['live', 'die']) === 'die'){
+        console.log('Fuck, am i dead now?');
+        return;
     }
+}
+```
 
     ;生命是一段漫长的旅程
     ;想了，就去做

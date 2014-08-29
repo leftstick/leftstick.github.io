@@ -26,7 +26,7 @@ tags: ["blog", "github"]
 
 来，咱们开始！
 
-### [创建一个新的代码仓库](#step-one) ###
+<h3 id="step-one"><a href="#step-one">创建一个新的代码仓库</a></h3>
 
 该仓库的名字必须按照如下格式：
 
@@ -35,21 +35,23 @@ tags: ["blog", "github"]
 > 以下步骤凡引用到`Github`用户名的地方，都用`example`代替，以免引起不必要的疑
 惑
 
-### [安装`Jekyll-Bootstrap`](#step-two) ###
+<h3 id="step-two"><a href="#step-two">安装`Jekyll-Bootstrap`</a></h3>
 
 在[命令行](http://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2)中，移动到一个你想要保存你的博客站的目录，执行如下命令(注意修改里面的`example`为你的用
 户名)：
 
-    git clone https://github.com/plusjade/jekyll-bootstrap.git example.github.com
-    cd example.github.com
-    git remote set-url origin git@github.com:example/example.github.com.git
-    git push origin master
+```powershell
+git clone https://github.com/plusjade/jekyll-bootstrap.git example.github.com
+cd example.github.com
+git remote set-url origin git@github.com:example/example.github.com.git
+git push origin master
+```
 
 > 该功能要求`Git`已经安装成功，如果没有安装的，请关闭所有的命令行程序，然后移步至
 [Git](http://git-scm.com/download/)下载`Git`，安装成功后，重新打开命令行，然后执行上述
 命令
 
-### [静心、安坐](#step-three) ###
+<h3 id="step-three"><a href="#step-three">静心、安坐</a></h3>
     
 现在，让我们一起喝杯咖啡、或者可以尿个尿(尿他个5分钟，尿出一片天)
 

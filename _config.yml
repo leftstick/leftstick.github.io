@@ -6,9 +6,12 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 
 #custom
 encoding: utf-8
-highlighter: true
-kramdown:
-  input : GFM
+markdown: redcarpet
+highlighter: pygments
+redcarpet:
+  extensions: ["fenced_code_blocks"]
+  input: "GFM"
+
 safe: true
 lsi: false
 
