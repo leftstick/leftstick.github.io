@@ -26,38 +26,38 @@ tags: ["blog", "github"]
 
 来，咱们开始！
 
-<h3 id="step-one"><a href="#step-one">创建一个新的代码仓库</a></h3>
+1. **创建一个新的代码仓库**
 
-该仓库的名字必须按照如下格式：
+    该仓库的名字必须按照如下格式：
 
-`<Github 用户名>.github.com`，譬如，我的这个仓库名字为：leftstick.github.com
+    `<Github 用户名>.github.com`，譬如，我的这个仓库名字为：leftstick.github.com
 
-> 以下步骤凡引用到`Github`用户名的地方，都用`example`代替，以免引起不必要的疑
-惑
+    > 以下步骤凡引用到`Github`用户名的地方，都用`example`代替，以免引起不必要的疑
+    惑
 
-<h3 id="step-two"><a href="#step-two">安装`Jekyll-Bootstrap`</a></h3>
+2. **安装`Jekyll-Bootstrap`**
 
-在[命令行](http://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2)中，移动到一个你想要保存你的博客站的目录，执行如下命令(注意修改里面的`example`为你的用
-户名)：
+    在[命令行](http://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2)中，移动到一个你想要保存你的博客站的目录，执行如下命令(注意修改里面的`example`为你的用
+    户名)：
 
-```powershell
-git clone https://github.com/plusjade/jekyll-bootstrap.git example.github.com
-cd example.github.com
-git remote set-url origin git@github.com:example/example.github.com.git
-git push origin master
-```
+    ```powershell
+    git clone https://github.com/plusjade/jekyll-bootstrap.git example.github.com
+    cd example.github.com
+    git remote set-url origin git@github.com:example/example.github.com.git
+    git push origin master
+    ```
 
-> 该功能要求`Git`已经安装成功，如果没有安装的，请关闭所有的命令行程序，然后移步至
-[Git](http://git-scm.com/download/)下载`Git`，安装成功后，重新打开命令行，然后执行上述
-命令
+    > 该功能要求`Git`已经安装成功，如果没有安装的，请关闭所有的命令行程序，然后移步至
+    [Git](http://git-scm.com/download/)下载`Git`，安装成功后，重新打开命令行，然后执行上述
+    命令
 
-<h3 id="step-three"><a href="#step-three">静心、安坐</a></h3>
+3. **静心、安坐**
     
-现在，让我们一起喝杯咖啡、或者可以尿个尿(尿他个5分钟，尿出一片天)
+    现在，让我们一起喝杯咖啡、或者可以尿个尿(尿他个5分钟，尿出一片天)
 
-> 注意修改里面的`example`为你的用户名
+    > 注意修改里面的`example`为你的用户名
 
-打开浏览器，输入`http://example.github.io/`，回车，欣赏你刚刚完成的作品吧！
+    打开浏览器，输入`http://example.github.io/`，回车，欣赏你刚刚完成的作品吧！
 
 
 - **博客站已经创建完毕，但里面的内容不是我自己写的啊？**
