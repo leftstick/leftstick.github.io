@@ -30,6 +30,11 @@ position: 1
                     ;赢了，还要再往前走  
                         ;死了，没留下任何遗憾
 
+### go版 ###
+
+代码详见： [生命之诗]({{ BASE_PATH }}/go/2014/09/02/poetry-go/)
+
+
 ### java版 ###
 
 代码详见： [生命之诗]({{ BASE_PATH }}/java/2014/09/01/poetry-java/)
