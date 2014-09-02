@@ -10,27 +10,34 @@ tags: ["poetry", "node", "tech"]
 ```JavaScript
 'use strict'
 
-var plan;
-var steps = {
-    '?': 'Go doing something else',
-    'success': 'Yeah, go for next target',
-    'failure': 'Get up, try it again'
+var plans = ['Failed, try again',
+    'Fell down, come on',
+    'Congratulation, keep going'
+];
+
+var random = function(n) {
+    return Math.floor(Math.random() * (n + 1));
 };
 
-var random = function(things){
-    var index = Math.floor(Math.random() * things.length);
-    return things[index];
-};
+var life = function() {
+    console.log('I got new plan');
 
-while(true){
-    console.log('Life is a long trip');
-    plan = random(Object.keys(steps));
-    console.log(steps[plan]);
-    if(random(['live', 'die']) === 'die'){
-        console.log('Fuck, am i dead now?');
+    var planIndex = random(2);
+
+    do {
+        console.log(plans[planIndex]);
+        planIndex = random(2);
+    } while (!planIndex);
+
+    if (random(1) === 0) {
+        console.log('No regrets');
         return;
     }
-}
+
+    life();
+};
+
+life();
 ```
 
     ;生命是一段漫长的旅程
