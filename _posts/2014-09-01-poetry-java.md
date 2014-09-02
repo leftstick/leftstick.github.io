@@ -8,41 +8,40 @@ tags: ["poetry", "java", "tech"]
 {% include JB/setup %}
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Poetry {
 
     private Random ran;
-    private List<Runnable> steps;
+    private String[] plans;
 
     public Poetry() {
         ran = new Random();
-        steps = new ArrayList<Runnable>();
-        steps.add(() -> {
-            System.out.println("Do what you love to do.");
-        });
-        steps.add(() -> {
-            System.out.println("Failed? Try it again!");
-        });
-        steps.add(() -> {
-            System.out.println("In trouble? Come on!");
-        });
-        steps.add(() -> {
-            System.out.println("Congratulations, go on!");
-        });
-        steps.add(() -> {
-            throw new RuntimeException("You are dead, bitch!");
-        });
+        plans = new String[3];
+        plans[0] = "Failed? Try it again";
+        plans[1] = "In trouble? Come on";
+        plans[2] = "Congratulations, go on";
+    }
+
+    public void doPlan() {
+        int index = ran.nextInt(3);
+        System.out.println(this.plans[index]);
+        if(index == 0){
+            this.doPlan();
+        }
     }
 
     public void life() {
-        System.out.println("Life is a long trip.");
-        steps.get(ran.nextInt(5)).run();
+        System.out.println("I got new plan");
+        this.doPlan();
+
+        if(ran.nextInt(2) == 0){
+            System.out.println("No regrets");
+            return;
+        }
         this.life();
     }
-
+    
     public static void main(String[] args) {
         Poetry poe = new Poetry();
         poe.life();
