@@ -9,18 +9,26 @@ tags: ["poetry", "clojure", "tech"]
 
 ```Clojure
 (def plans 
-    ["You'v achieved the goal, keep going!^^" 
-    "You failed the city, but never mind!" 
-    "Do what ever you want!"])
-(defn life-poetry [] 
-    (if (= (rand-int 2) 0) 
-        (println "you're dead, monky") 
+    ["Failed, try again" 
+    "Fell down, come one" 
+    "Congratulations, keep going"])
+
+(defn do-plan [index] 
+    (do (println (nth plans index))
+        (if (= index 0)
+            (do-plan (rand-int 3)))))
+
+(defn life [] 
+    (loop [] 
         (do 
-            (println "life is a long trip") 
-            (println (nth plans (rand-int 3))) 
-            (life-poetry)))
-)
-(life-poetry)
+            (println "I got new plan")
+            (do-plan (rand-int 3))
+            (if (= (rand-int 2) 0)
+                (println "No regrets")
+                (recur))
+        )))
+
+(life)
 ```
 
     ;生命是一段漫长的旅程
