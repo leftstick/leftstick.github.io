@@ -30,6 +30,10 @@ position: 1
                     ;赢了，还要再往前走  
                         ;死了，没留下任何遗憾
 
+### groovy版 ###
+
+代码详见： [生命之诗]({{ BASE_PATH }}/groovy/2014/09/04/poetry-groovy/)
+
 ### shell版 ###
 
 代码详见： [生命之诗]({{ BASE_PATH }}/shell/2014/09/02/poetry-shell/)
