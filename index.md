@@ -38,26 +38,26 @@ position: 1
                     ;赢了，还要再往前走  
                         ;死了，没留下任何遗憾
 
-### groovy版 ###
 
-代码详见： [生命之诗]({{ BASE_PATH }}/groovy/2014/09/04/poetry-groovy/)
-
-### shell版 ###
-
-代码详见： [生命之诗]({{ BASE_PATH }}/shell/2014/09/02/poetry-shell/)
-
-### go版 ###
-
-代码详见： [生命之诗]({{ BASE_PATH }}/go/2014/09/02/poetry-go/)
-
-### java版 ###
-
-代码详见： [生命之诗]({{ BASE_PATH }}/java/2014/09/01/poetry-java/)
-
-### clojure版 ###
-
-代码详见： [生命之诗]({{ BASE_PATH }}/clojure/2014/08/20/poetry-clojure/)
-
-### node版 ###
-
-代码详见： [生命之诗]({{ BASE_PATH }}/node/2014/08/20/poetry-node/)
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th>groovy</th>
+          <th>shell</th>
+          <th>go</th>
+          <th>java</th>
+          <th>clojure</th>
+          <th>node</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="/groovy/2014/09/04/poetry-groovy/">你戳我呀</a></td>
+            <td><a href="/shell/2014/09/02/poetry-shell/">你戳我呀</a></td>
+            <td><a href="/go/2014/09/02/poetry-go/">你戳我呀</a></td>
+            <td><a href="/java/2014/09/01/poetry-java/">你戳我呀</a></td>
+            <td><a href="/clojure/2014/08/20/poetry-clojure/">你戳我呀</a></td>
+            <td><a href="/node/2014/08/20/poetry-node/">你戳我呀</a></td>
+        </tr>
+    </tbody>
+</table>

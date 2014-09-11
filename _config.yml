@@ -9,7 +9,7 @@ encoding: utf-8
 markdown: redcarpet
 highlighter: pygments
 redcarpet:
-  extensions: ["fenced_code_blocks"]
+  extensions: ["fenced_code_blocks", "tables"]
 
 safe: true
 lsi: false
