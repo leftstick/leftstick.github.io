@@ -35,3 +35,11 @@ footer .container{
 code.hljs{
     font-size: 14px;
 }
+
+.navbar.navbar-fixed-top{
+    padding: 0 10px;
+}
+
+.nav-collapse .nav li a{
+    padding-left: 15px !important;
+}
