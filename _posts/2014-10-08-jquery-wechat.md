@@ -137,7 +137,7 @@ $.wechat.setShareOption({
     img_url: window.location.toString() + 'img/demo.jpg',        //缩略图
     title: 'DEMO',                                               //标题
     desc: 'The description is set from $.wechat.setShareOption', //描述
-    link：function() {
+    link: function() {
         return window.location.toString();                       //消息分享出去后，用户点击消息打开的链接地址
     },
     callback: function(response) {
