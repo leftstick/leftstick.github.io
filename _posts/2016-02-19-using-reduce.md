@@ -29,16 +29,22 @@ arr.reduce(callback,[initialValue])
 
 **callback**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;执行数组中每个值的函数，包含四个参数
+
 **previousValue**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上一次调用回调返回的值，或者是提供的初始值（initialValue）
+
 **currentValue**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数组中当前被处理的元素
+
 **index**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前元素在数组中的索引
+
 **array**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;调用 reduce 的数组
 
+
 以上是来自[MDN-reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)的诠释，可这到底什么意思啊？与逼格何干？
+
 ![]({{ BASE_PATH }}/assets/images/reduce-01.jpg)
 
 
