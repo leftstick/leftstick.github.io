@@ -49,7 +49,7 @@ touch helloworld.json
 
 将如下内容粘贴到`helloworld.json`里:
 
-```javascript
+```json
 {
     "when": "/helloworld",
     "method": "get",
@@ -77,7 +77,7 @@ sero
 
 打开浏览器，输入：`http://localhost:3000/helloworld`，你会看到如下响应数据：
 
-```javascript
+```json
 {
     "title": "hello",
     "content": "world, i am your uncle"

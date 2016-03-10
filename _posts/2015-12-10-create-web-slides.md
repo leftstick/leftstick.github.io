@@ -29,21 +29,21 @@ shortContent: "在我们漫长的工作生涯中，无论是与他人分享某�
 
 再来，[yeoman](http://yeoman.io/)是一个非常好用的脚手架平台，通过这个平台，我们有非常多的脚手架工具可以用来生成不同的应用基本结构，省却了我们不少功夫。安装[yeoman](http://yeoman.io/)非常简单，在命令行中执行如下命令即可：
 
-```bash
+```shell
 npm install -g yo
 ```
 >在unix like操作系统下，需要在该命令之前加sudo
 
 然后，我们在来安装本次的重头工具——[generator-slides](https://github.com/leftstick/generator-slides)，它就是基于[yeoman](http://yeoman.io/)架构，开发的一个脚手架工具。安装也非常简单，命令行中执行以下命令：
 
-```bash
+```shell
 npm install -g generator-slides
 ```
 >在unix like操作系统下，需要在该命令之前加sudo
 
 最后，再来安装一个小工具——[sero-cli](https://github.com/leftstick/Sero-cli)，用处我们后面再说，通过命令行执行以下命令安装：
 
-```bash
+```shell
 npm install -g sero-cli
 ```
 >在unix like操作系统下，需要在该命令之前加sudo
@@ -54,7 +54,7 @@ npm install -g sero-cli
 
 打开命令行，找一个你喜欢的文件夹，执行以下命令，开始创建一个幻灯片项目：
 
-```bash
+```shell
 yo slides
 ```
 
@@ -79,7 +79,7 @@ yo slides
 
 依旧，执行如下命令：
 
-```bash
+```shell
 cd demo-slides
 sero server -r . -p 8080 -l
 ```
@@ -107,7 +107,7 @@ sero server -r . -p 8080 -l
 ![]({{ BASE_PATH }}/assets/images/create-web-slides-copyrepourl.png)
 3. 再次打开命令行，执行如下命令：
 
-```bash
+```shell
 git init
 git remote add origin git@github.com:<你自己的用户名>/demo-slides.git
 git checkout -b gh-pages

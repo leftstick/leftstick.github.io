@@ -146,17 +146,17 @@ pre[class*="language-"] code[class*="language-"] .tag{
   content: none;
 }
 
-code[data-language]::-webkit-scrollbar{
+pre.highlight::-webkit-scrollbar{
     height: 5px;
     width: 5px;
 }
 
-code[data-language]::-webkit-scrollbar,
-code[data-language]::-webkit-scrollbar-button
+pre.highlight::-webkit-scrollbar,
+pre.highlight::-webkit-scrollbar-button
 {
     background-color: transparent;
 }
-code[data-language]::-webkit-scrollbar-thumb{
-    background-color: #fff;
+pre.highlight::-webkit-scrollbar-thumb{
+    background-color: #D8D8D8;
     border-radius: 5px;
 }

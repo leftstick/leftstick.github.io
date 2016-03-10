@@ -18,7 +18,7 @@ shortContent: "因为最近自己的产品要在微信公众号中推广，需�
 
 看完上面这个图后，有没有这样的感觉：
 
-```ini
+```yaml
 A: 你知道老王家有几口人么？
 
 B: 不知道，我就在大门口见过他老婆，估计就俩人吧？
@@ -28,7 +28,7 @@ C: 不会吧，那天看见还有个小孩儿进他们家，会不会是老王�
 D: 唉！谁他妈都没去过老王家，也不认识老王，老王也不自我坦白，鬼才知道他们家几口人！
 ```
 
-例子或许不那么恰当，但就是这么个道理，一群开发者在死去活来的摸索，还互相慰藉，就是永远得不到正确答案！o(∩_∩)o 哈哈
+例子或许不那么恰当，但就是这么个道理，一群开发者在死去活来的摸索，还互相慰藉，就是永远得不到正确答案！o(∩\_∩)o 哈哈
 
 说了这么多，赶紧入正题，本期要讲的就是我痛苦中挣扎徘徊后写的[jQuery.wechat][jquery-wechat-url]，一个提供了统一API的、基于[jQuery.promise][promise-url]的jQuery.plugin。希望能多少帮助到大家。
 
@@ -113,13 +113,13 @@ $.wechat.preview({
 
 ```javascript
 $.wechat.getNetworkType().done(function(response) {
-    $('#network').text(response.split(':')[1]); 
+    $('#network').text(response.split(':')[1]);
 });
 ```
 
 `response`格式如下：
 
-```ini
+```yaml
 network_type:wifi    wifi网络
 network_type:edge    非wifi,包含3G/2G
 network_type:fail    网络断开连接
