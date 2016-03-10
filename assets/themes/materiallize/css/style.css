@@ -145,3 +145,18 @@ pre[class*="language-"] code[class*="language-"] .tag{
 #ds-reset label[for=ds-sync-checkbox]:before{
   content: none;
 }
+
+code[data-language]::-webkit-scrollbar{
+    height: 5px;
+    width: 5px;
+}
+
+code[data-language]::-webkit-scrollbar,
+code[data-language]::-webkit-scrollbar-button
+{
+    background-color: transparent;
+}
+code[data-language]::-webkit-scrollbar-thumb{
+    background-color: #fff;
+    border-radius: 5px;
+}
