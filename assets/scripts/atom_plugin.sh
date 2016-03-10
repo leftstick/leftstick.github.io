@@ -55,8 +55,8 @@ echo "Frontend environment plugins installed"
 
 echo ""
 echo "Downloading .eslintrc"
-curl http://leftstick.gitcafe.io/assets/scripts/eslintrc_browser_legacy.json > ~/.eslintrc_browser
-curl http://leftstick.gitcafe.io/assets/scripts/eslintrc_node.json > ~/.eslintrc_node
+curl http://leftstick.github.io/assets/scripts/eslintrc_browser_legacy.json > ~/.eslintrc_browser
+curl http://leftstick.github.io/assets/scripts/eslintrc_node.json > ~/.eslintrc_node
 echo ""
 
 if [[ $os == "WINDOWS" ]]; then
@@ -71,13 +71,13 @@ else
 fi
 
 echo "Downloading .esformatter"
-curl http://leftstick.gitcafe.io/assets/scripts/esformatter > ~/.esformatter
+curl http://leftstick.github.io/assets/scripts/esformatter > ~/.esformatter
 
 echo "Downloading snippets.cson"
-curl http://leftstick.gitcafe.io/assets/scripts/snippets.cson > ~/.atom/snippets.cson
+curl http://leftstick.github.io/assets/scripts/snippets.cson > ~/.atom/snippets.cson
 
 echo "Downloading config.cson"
-curl http://leftstick.gitcafe.io/assets/scripts/config.cson > ~/.atom/config.cson
+curl http://leftstick.github.io/assets/scripts/config.cson > ~/.atom/config.cson
 
 orgNodePath=`npm config get prefix`
 nodePath=${orgNodePath//\\/\\\\\\\\}

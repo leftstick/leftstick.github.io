@@ -55,7 +55,7 @@ apm config set registry https://registry.npm.taobao.org
 #### 安装前端开发环境所需插件
 
 ```bash
-curl -L http://leftstick.gitcafe.io/assets/scripts/atom_plugin.sh | sh
+curl -L http://leftstick.github.io/assets/scripts/atom_plugin.sh | sh
 ```
 
 **使用非模块化linting预设**
