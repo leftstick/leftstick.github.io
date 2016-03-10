@@ -31,21 +31,24 @@ shortContent: "Transform your plain text into static websites and blogs."
 
     该仓库的名字必须按照如下格式：
 
-    `<Github 用户名>.github.com`，譬如，我的这个仓库名字为：leftstick.github.com
+    `<Github 用户名>.github.com`，譬如，我的用户名叫`tobiasahlin`，那这个仓库就起名为：tobiasahlin.github.com
 
-    > 以下步骤凡引用到`Github`用户名的地方，都用`example`代替，以免引起不必要的疑
+> 以下步骤凡引用到`Github`用户名的地方，都用`tobiasahlin`代替，以免引起不必要的疑
     惑
 
-* **安装`Jekyll-Bootstrap`**
+    如下图：
 
-    在[命令行](http://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2)中，移动到一个你想要保存你的博客站的目录，执行如下命令(注意修改里面的`example`为你的用
+    ![]({{ BASE_PATH }}/assets/images/create-blog-createrepo.png)
+
+* **安装`Jekyll-Materialize`**
+
+    在[命令行](http://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2)中，移动到一个你想要保存你的博客站的目录，执行如下命令(注意修改里面的`tobiasahlin`为你的用
     户名)：
 
 ```shell
-git clone https://github.com/plusjade/jekyll-bootstrap.git example.github.com
-cd example.github.com
-git remote set-url origin git@github.com:example/example.github.com.git
-git push origin master
+git clone https://github.com/leftstick/jekyll-materiallize.git tobiasahlin.github.com
+cd tobiasahlin.github.com
+git remote set-url origin git@github.com:tobiasahlin/tobiasahlin.github.com.git
 ```
 
 
@@ -53,23 +56,55 @@ git push origin master
     [Git](http://git-scm.com/download/)下载`Git`，安装成功后，重新打开命令行，然后执行上述
     命令
 
-* **静心、安坐**
+* **修改`Jekyll`配置**
 
-    现在，让我们一起喝杯咖啡、或者可以尿个尿(尿他个5分钟，尿出一片天)
+    打开`_config.yml`，找到如下参数，并修改成自己的内容即可：
 
-    > 注意修改里面的`example`为你的用户名
+```yml
+title : Jekyll Materiallize
+tagline: Site Tagline
+lang: en
+footerDetail: true
+author :
+  name : Name Lastname
+  avatar : false
+  introduction : "A brief introduction should be placed here, in order to make the author known well to the reader"
+  email : user@email.test
+  github : username
+  twitter : username
+  gitcafe: username
+  weibo : weiboID
+  facebook : username
 
-    打开浏览器，输入`http://example.github.io/`，回车，欣赏你刚刚完成的作品吧！
+production_url : http://username.github.io
+```
 
+**参数详解**
 
-- **博客站已经创建完毕，但里面的内容不是我自己写的啊？**
+`title` 博客名
+`tagline` 权当是副标题吧
+`lang` 多语言控制，支持en，zh。默认是en
+`footerDetail` 详细页脚，true显示，false关闭
+`author.name` 作者，你的大名
+`author.avatar` 头像，false表示使用默认头像
+`author.introduction` 自我介绍
+`author.email` 邮箱
+`author.github` Github用户名
+`author.twitter` twitter用户名
+`author.weibo` 新浪微博用户ID
+`author.facebook` facebook用户名
+`production_url` 你的博客线上地址，即http://tobiasahlin.github.io
 
-没错，那是`Jekyll-Bootstrap`预置的内容，需要自己改的
+>至于其他诸如`JB.comments`，`JB.analytics`，`JB.sharing`等配置，可直接参考[Blog-Configuration](http://jekyllbootstrap.com/usage/blog-configuration.html)
 
-- **怎么写自己的博客？**
+- **发布**
 
-欲知后事如何？且看下回分解！
+```shell
+git add .
+git commit -m "blog created"
+git push -u origin master
+```
 
-- **样子不够屌，可不可以换？**
+- **欣赏**
 
-莫慌，饭要一口一口吃！后面会说的!
+稍等片刻后，打开[http://tobiasahlin.github.io](http://tobiasahlin.github.io)即可看到的你的Material Design博客了。
