@@ -42,7 +42,7 @@ public class Poetry {
         }
         this.life();
     }
-    
+
     public static void main(String[] args) {
         Poetry poe = new Poetry();
         poe.life();
@@ -50,7 +50,7 @@ public class Poetry {
 }
 ```
 
-```ini
+```yaml
 ;生命是一段漫长的旅程
 ;想了，就去做
 ;输了，重头再来

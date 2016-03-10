@@ -41,12 +41,15 @@ shortContent: "Transform your plain text into static websites and blogs."
     在[命令行](http://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2)中，移动到一个你想要保存你的博客站的目录，执行如下命令(注意修改里面的`example`为你的用
     户名)：
 
-<pre class="language-bash"><code class="language-bash" data-language="bash">
-    git clone https://github.com/plusjade/jekyll-bootstrap.git example.github.com
-    cd example.github.com
-    git remote set-url origin git@github.com:example/example.github.com.git
-    git push origin master</code></pre>
-    > 该功能要求`Git`已经安装成功，如果没有安装的，请关闭所有的命令行程序，然后移步至
+```shell
+git clone https://github.com/plusjade/jekyll-bootstrap.git example.github.com
+cd example.github.com
+git remote set-url origin git@github.com:example/example.github.com.git
+git push origin master
+```
+
+
+> 该功能要求`Git`已经安装成功，如果没有安装的，请关闭所有的命令行程序，然后移步至
     [Git](http://git-scm.com/download/)下载`Git`，安装成功后，重新打开命令行，然后执行上述
     命令
 

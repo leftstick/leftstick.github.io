@@ -9,19 +9,19 @@ shortContent: "Clojure是一种运行在Java平台上的 Lisp 方言，Lisp是�
 {% include JB/setup %}
 
 ```clojure
-(def plans 
-    ["Failed, try again" 
-    "Fell down, come one" 
+(def plans
+    ["Failed, try again"
+    "Fell down, come one"
     "Congratulations, keep going"])
 
-(defn do-plan [index] 
+(defn do-plan [index]
     (do (println (nth plans index))
         (if (= index 0)
             (do-plan (rand-int 3)))))
 
-(defn life [] 
-    (loop [] 
-        (do 
+(defn life []
+    (loop []
+        (do
             (println "I got new plan")
             (do-plan (rand-int 3))
             (if (= (rand-int 2) 0)
@@ -32,7 +32,7 @@ shortContent: "Clojure是一种运行在Java平台上的 Lisp 方言，Lisp是�
 (life)
 ```
 
-```ini
+```yaml
 ;生命是一段漫长的旅程
 ;想了，就去做
 ;输了，重头再来

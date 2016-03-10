@@ -41,7 +41,7 @@ var life = function() {
 life();
 ```
 
-```ini
+```yaml
 ;生命是一段漫长的旅程
 ;想了，就去做
 ;输了，重头再来
