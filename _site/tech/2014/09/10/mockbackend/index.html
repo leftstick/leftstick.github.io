@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>分分钟教你搭建RESTful API 模拟器</title>
+
+    
+    <meta name="description" content="">
+    
+
+    <meta name="author" content="Howard.Zuo">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui"/>
+    
+    
+    <base href="/">
+    
+
+    
+    <base href="/">
+    
+
+    <!-- materiallize styles -->
+    <link href="/assets/themes/materiallize/css/materialize.min.css" rel="stylesheet">
+    <!-- fontawesome styles -->
+    <link href="/assets/themes/materiallize/css/font-awesome.min.css" rel="stylesheet">
+    <!-- tooltipster styles -->
+    <link href="/assets/themes/materiallize/css/tooltipster.css" rel="stylesheet">
+    <!-- prism styles -->
+    <link href="/assets/themes/materiallize/css/prism.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/materiallize/css/style.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/themes/materiallize/js/html5shiv.js"></script>
+      <script src="/assets/themes/materiallize/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png">
+
+    <script type="text/javascript" src="/assets/themes/materiallize/js/modernizr.js"></script>
+
+  </head>
+
+  <body>
+
+      <nav class="light-blue lighten-1" role="navigation">
+          <div class="nav-wrapper container">
+              <a id="logo-container" href="/" class="brand-logo">右领军大都督</a>
+              <ul class="right hide-on-med-and-down">
+                  
+                  
+                  
+
+
+  
+    
+  
+    
+      
+          
+          <li><a href="/index.html" lang="HOME"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/archive.html" lang="ARCHIVE"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/categories.html" lang="CATEGORIES"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/tags.html" lang="TAGS"></a></li>
+          
+      
+    
+  
+
+
+
+              </ul>
+
+              <ul id="nav-mobile" class="side-nav">
+                  
+                  
+                  
+
+
+  
+    
+  
+    
+      
+          
+          <li><a href="/index.html" lang="HOME"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/archive.html" lang="ARCHIVE"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/categories.html" lang="CATEGORIES"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/tags.html" lang="TAGS"></a></li>
+          
+      
+    
+  
+
+
+
+              </ul>
+              <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="mdi-navigation-menu"></i></a>
+          </div>
+      </nav>
+      
+      <main>
+          <div class="container">
+              
+<div class="row">
+    <div class="col s12 m8">
+        <h2><small>与后端解耦开发不是梦</small></h2>
+        
+<p>据说，每一个前端工程师都有周期性的心理焦躁症。在这段时间里，他们不安、牢骚满腹，甚至摇头摆尾、爬来爬去。不是因为那莫名其妙的‘每个月那几天’，就是单纯的伴随着每个开发周期的迭代。可这是为什么？迭代里到底发生了什么使他们如此焦虑？</p>
+
+<p>哥分分钟为你解开疑惑。</p>
+
+<p>我曾经是一名光荣的后端工程师，为我的service、gateway、strategy…骄傲、自豪。那时我目空一切，前端在我眼里不过绘图耳。于是我忽略他们的建议、意见，即便是呐喊，我也权当是个屁，就那么轻轻的给他放了。直到有一天，我自己转行，加入了茫茫的‘绘图’大军，这才意识到，知识的隔阂原来已经浸入骨髓，变之，难矣！</p>
+
+<p>那为什么前端会痛苦？因为他们的工作总是依赖后端的接口，什么<code>RESTful API</code>啦，<code>WebSocket</code>啦，后端不做完，前端就没法开始。可如果前端依赖了后端，前端又会被老板批说“你就不能同步开始么？”，唉，这种事，谁做谁知道！可如果前端去催后端的接口，后端一定鄙视你“画个图还屁事多？你先把图画上，等我接口完了，你一连不就OK啦？”，唉，这种事，谁做谁知道！</p>
+
+<p>相信我，哥把一生都奉献在编码上了，鸡同鸭讲的事我见的多了。在我们这个神奇的行业里，你懂的，不会编程的‘程序员’实际不在少数。我们怎么办？总得饭照吃、活照干吧？于是前后端分离就成了热门话题。只要接口先约定好，爷不等你后端的实现了行不行？答案自然是肯定的，这就是今天的话题——<a href="https://www.npmjs.org/package/webservice-simulator">webservice-simulator</a></p>
+
+<p>有了接口约定，爷还尿你那破实现？谁先做完谁邀功、谁做不完谁滚蛋！道理就这么简单，你也别觉着可怕！在我们这神奇的行业里，“杀良冒功”也不鲜见。</p>
+
+<p>大话题谈完，来，我们上点儿干货！</p>
+
+<p>首先，我们安装<a href="https://www.npmjs.org/package/sero-cli">sero-cli</a></p>
+
+<pre><code class="language-bash">npm install sero-cli -g
+</code></pre>
+
+<p>然后随便找个地方，新建一个叫<code>routers</code>的目录(其实叫什么都为所谓，我这里就用<code>routers</code>，方便演示)。</p>
+
+<pre><code class="language-bash">mkdir routers
+</code></pre>
+
+<p>进入<code>routers</code>目录</p>
+
+<pre><code class="language-bash">cd routers
+</code></pre>
+
+<p>创建一个叫<code>helloworld.json</code>的文件</p>
+
+<pre><code class="language-bash">touch helloworld.json
+</code></pre>
+
+<p>将如下内容粘贴到<code>helloworld.json</code>里:</p>
+
+<pre><code class="language-javascript">{
+    "when": "/helloworld",
+    "method": "get",
+    "responseData": {
+        "title": "hello",
+        "content": "world, i am your uncle"
+    }
+}
+</code></pre>
+
+<p>退回至<code>routers</code>的父目录</p>
+
+<pre><code class="language-bash">cd ../
+</code></pre>
+
+<p>启动<code>sero</code></p>
+
+<pre><code class="language-bash">sero
+</code></pre>
+<p>找到如下图所示的<code>Launch web service simulator</code>，回车(所有问题均取默认值)，启动模拟器</p>
+
+<p><img src="/assets/images/sero.png" alt="" /></p>
+
+<p>打开浏览器，输入：<code>http://localhost:3000/helloworld</code>，你会看到如下响应数据：</p>
+
+<pre><code class="language-javascript">{
+    "title": "hello",
+    "content": "world, i am your uncle"
+}
+</code></pre>
+<p><code>sero-cli</code>就是这样一个伟大的前端开发工具，或许你还需要了解更多她的特点，请戳： <a href="https://www.npmjs.org/package/sero-cli">sero-cli</a></p>
+
+
+        <div class="right-align pagination-group">
+            
+                <a href="/groovy/2014/09/04/poetry-groovy" class="btn waves-effect waves-light blue lighten-2" style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                    &larr; <span lang="PREVIOUS_BTN"></span>
+                </a>
+            
+                <a href="/archive.html" class="btn waves-effect waves-light blue" style="border-radius: 0;" lang="ARCHIVE_BTN"></a>
+            
+                <a href="/tech/2014/09/21/request-emitter" class="btn waves-effect waves-light blue lighten-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                    <span lang="NEXT_BTN"></span> &rarr;
+                </a>
+            
+        </div>
+        
+        <br/>
+        <hr>
+
+        
+
+
+  <div class="ds-thread" data-thread-key="/tech/2014/09/10/mockbackend" data-title="分分钟教你搭建RESTful API 模拟器" data-url="http://leftstick.gitcafe.io/tech/2014/09/10/mockbackend"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"leftstickgithub"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+
+
+
+
+    </div>
+    <div class="col m4 hide-on-small-only">
+        <div class="card blue-grey darken-1 z-depth-2">
+            <div class="card-content white-text">
+              <span class="card-title">分分钟教你搭建RESTful API 模拟器</span>
+            </div>
+            <div class="card-action blue-grey lighten-4">
+                <span lang="CREATED_ON"></span> 2014-09-10
+            </div>
+        </div>
+
+        <div class="card-panel grey lighten-5 z-depth-2">
+            <div class="row valign-wrapper">
+                <div class="col s12">
+                    <i class="fa fa-server fa-lg grey-text text-darken-4"></i>&nbsp;&nbsp;<strong class="grey-text text-darken-4" lang="CATEGORIES"></strong>
+                    <hr>
+                    
+                      
+                      <a href="/categories.html#tech-ref" class="waves-effect waves-light btn tag deep-orange">
+                          tech&nbsp;11
+                      </a>
+                      
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="card-panel grey lighten-5 z-depth-2">
+            <div class="row valign-wrapper">
+                <div class="col s12">
+                    <i class="fa fa-flag fa-lg grey-text text-darken-4"></i>&nbsp;&nbsp;<strong class="grey-text text-darken-4" lang="TAGS"></strong>
+                    <hr>
+                    
+                      
+                      <a href="/tags.html#web-ref" class="waves-effect waves-light btn tag deep-orange">
+                          web&nbsp;4
+                      </a>
+                      
+                      <a href="/tags.html#mock-ref" class="waves-effect waves-light btn tag deep-orange">
+                          mock&nbsp;1
+                      </a>
+                      
+                      <a href="/tags.html#RESTful-ref" class="waves-effect waves-light btn tag deep-orange">
+                          RESTful&nbsp;1
+                      </a>
+                      
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+          </div>
+      </main>
+
+      <div class="goto-top hide-on-med-and-down">
+          <i class="fa fa-chevron-up fa-2x"></i>
+      </div>
+
+      <footer class="page-footer" style="padding-top:0;">
+          
+          <div class="footer-copyright">
+            <div class="container">
+            &copy; 2016 Howard.Zuo, All rights reserved.
+            <a class="grey-text text-lighten-4 right" href="https://github.com/leftstick/jekyll-materiallize/blob/master/LICENSE">MIT License</a>
+            </div>
+          </div>
+      </footer>
+
+      
+
+
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="/assets/themes/materiallize/js/jquery-2.1.3.min.js"></script>
+      <script src="/assets/themes/materiallize/js/materialize.min.js"></script>
+      <script src="/assets/themes/materiallize/js/jquery.tooltipster.min.js"></script>
+      <script src="/assets/themes/materiallize/js/prism.js"></script>
+      <script src="/assets/themes/materiallize/js/prism.clojure.js"></script>
+      <script src="/assets/lang/lang.js"></script>
+      <script src="/assets/themes/materiallize/js/init.js"></script>
+  </body>
+</html>
+

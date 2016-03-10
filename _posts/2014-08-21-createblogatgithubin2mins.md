@@ -4,6 +4,7 @@ title: "2分钟教你在Github上建博客"
 description: ""
 category: "tech"
 tags: ["blog", "github"]
+shortContent: "Transform your plain text into static websites and blogs."
 ---
 {% include JB/setup %}
 
@@ -26,7 +27,7 @@ tags: ["blog", "github"]
 
 来，咱们开始！
 
-1. **创建一个新的代码仓库**
+* **创建一个新的代码仓库**
 
     该仓库的名字必须按照如下格式：
 
@@ -35,24 +36,22 @@ tags: ["blog", "github"]
     > 以下步骤凡引用到`Github`用户名的地方，都用`example`代替，以免引起不必要的疑
     惑
 
-2. **安装`Jekyll-Bootstrap`**
+* **安装`Jekyll-Bootstrap`**
 
     在[命令行](http://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2)中，移动到一个你想要保存你的博客站的目录，执行如下命令(注意修改里面的`example`为你的用
     户名)：
 
-    ```powershell
+<pre class="language-bash"><code class="language-bash" data-language="bash">
     git clone https://github.com/plusjade/jekyll-bootstrap.git example.github.com
     cd example.github.com
     git remote set-url origin git@github.com:example/example.github.com.git
-    git push origin master
-    ```
-
+    git push origin master</code></pre>
     > 该功能要求`Git`已经安装成功，如果没有安装的，请关闭所有的命令行程序，然后移步至
     [Git](http://git-scm.com/download/)下载`Git`，安装成功后，重新打开命令行，然后执行上述
     命令
 
-3. **静心、安坐**
-    
+* **静心、安坐**
+
     现在，让我们一起喝杯咖啡、或者可以尿个尿(尿他个5分钟，尿出一片天)
 
     > 注意修改里面的`example`为你的用户名
@@ -61,13 +60,13 @@ tags: ["blog", "github"]
 
 
 - **博客站已经创建完毕，但里面的内容不是我自己写的啊？**
-    
+
 没错，那是`Jekyll-Bootstrap`预置的内容，需要自己改的
 
 - **怎么写自己的博客？**
-    
+
 欲知后事如何？且看下回分解！
 
 - **样子不够屌，可不可以换？**
-  
+
 莫慌，饭要一口一口吃！后面会说的!

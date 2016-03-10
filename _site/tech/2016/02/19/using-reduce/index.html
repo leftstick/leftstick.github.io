@@ -1,0 +1,539 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>提高逼格，从reduce开始</title>
+
+    
+    <meta name="description" content="">
+    
+
+    <meta name="author" content="Howard.Zuo">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui"/>
+    
+    
+    <base href="/">
+    
+
+    
+    <base href="/">
+    
+
+    <!-- materiallize styles -->
+    <link href="/assets/themes/materiallize/css/materialize.min.css" rel="stylesheet">
+    <!-- fontawesome styles -->
+    <link href="/assets/themes/materiallize/css/font-awesome.min.css" rel="stylesheet">
+    <!-- tooltipster styles -->
+    <link href="/assets/themes/materiallize/css/tooltipster.css" rel="stylesheet">
+    <!-- prism styles -->
+    <link href="/assets/themes/materiallize/css/prism.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/materiallize/css/style.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/themes/materiallize/js/html5shiv.js"></script>
+      <script src="/assets/themes/materiallize/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png">
+
+    <script type="text/javascript" src="/assets/themes/materiallize/js/modernizr.js"></script>
+
+  </head>
+
+  <body>
+
+      <nav class="light-blue lighten-1" role="navigation">
+          <div class="nav-wrapper container">
+              <a id="logo-container" href="/" class="brand-logo">右领军大都督</a>
+              <ul class="right hide-on-med-and-down">
+                  
+                  
+                  
+
+
+  
+    
+  
+    
+      
+          
+          <li><a href="/index.html" lang="HOME"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/archive.html" lang="ARCHIVE"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/categories.html" lang="CATEGORIES"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/tags.html" lang="TAGS"></a></li>
+          
+      
+    
+  
+
+
+
+              </ul>
+
+              <ul id="nav-mobile" class="side-nav">
+                  
+                  
+                  
+
+
+  
+    
+  
+    
+      
+          
+          <li><a href="/index.html" lang="HOME"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/archive.html" lang="ARCHIVE"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/categories.html" lang="CATEGORIES"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/tags.html" lang="TAGS"></a></li>
+          
+      
+    
+  
+
+
+
+              </ul>
+              <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="mdi-navigation-menu"></i></a>
+          </div>
+      </nav>
+      
+      <main>
+          <div class="container">
+              
+<div class="row">
+    <div class="col s12 m8">
+        
+        
+<h3 id="section">逼格是什么？</h3>
+
+<p>逼格是unique，是与众不同，每个人都想自己是<strong>the one</strong>，程序员也不例外。于是，提高逼格就成了有”有理想、有抱负”的程序员的必修课，有了逼格，你可以傲视群雄，鹤立鸡群，举手投足间都流露出”我，就是不一样”的装逼范儿！</p>
+
+<p>提高之路，从<code>reduce</code>开始。</p>
+
+<h3 id="reduce">reduce是什么？</h3>
+
+<h5 id="section-1">概述</h5>
+
+<p><code>reduce()</code>方法接收一个函数作为累加器（accumulator），数组中的每个值（从左到右）开始合并，最终为一个值。</p>
+
+<h5 id="section-2">语法</h5>
+
+<pre><code class="language-javascript">arr.reduce(callback,[initialValue])
+</code></pre>
+
+<h5 id="section-3">参数</h5>
+
+<p><strong>callback</strong><br />
+     执行数组中每个值的函数，包含四个参数<br />
+<strong>previousValue</strong><br />
+     上一次调用回调返回的值，或者是提供的初始值（initialValue）<br />
+<strong>currentValue</strong><br />
+     数组中当前被处理的元素<br />
+<strong>index</strong><br />
+     当前元素在数组中的索引<br />
+<strong>array</strong><br />
+     调用 reduce 的数组</p>
+
+<p>以上是来自<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">MDN-reduce</a>的诠释，可这到底什么意思啊？与逼格何干？<br />
+<img src="/assets/images/reduce-01.jpg" alt="" /></p>
+
+<h3 id="section-4">命令式编程</h3>
+<p>有了上面的疑惑，我们先来看一个传统的极简单的求和题目，将如下数据中各披萨的价格求和：</p>
+
+<pre><code class="language-javascript">var pizzas = [
+    {
+        name: 'Cheese Lovers',
+        price: 59.0
+    },
+    {
+        name: 'Garden Veggies',
+        price: 52.0
+    },
+    {
+        name: 'Hawaiian',
+        price: 49.0
+    }
+];
+</code></pre>
+
+<p>何谓“命令式编程”？顾名思义，就是把执行引擎/虚拟机…当成蠢蛋，事必躬亲，手把手指挥机器完成每一个步骤，像以下这样：</p>
+
+<pre><code class="language-javascript">var sum = 0;
+
+for(var i = 0; i &lt; pizzas.length; i++){
+    sum += pizzas[i].price;
+}
+
+console.log(sum);//160
+</code></pre>
+
+<p>“命令式编程”好么？当然好！老少咸宜！</p>
+
+<p>但逼格高么？肯定不高，为什么？理由很简单，<code>for loop</code>是从上古时代就已经存在的流程控制语句，上到写了20年程序的“老专家”，下至学了1年的小鲜肉都玩得转<code>for loop</code>，你哪来的逼格啊？</p>
+
+<p>除了逼格，<code>for loop</code>还有没有什么缺点？那必须有，来向下看齐：</p>
+
+<ul>
+  <li>需要手动创建计数器记录遍历位置(<code>i</code>)</li>
+  <li>需要手动获取列表长度(<code>pizzas.length</code>)，并以此作为遍历依据</li>
+  <li>需要手动指定遍历方向(正序／逆序)，尽管这里方向并不重要</li>
+  <li>需要手动创建变量记录遍历变化(<code>sum += pizzas[i].price;</code>)</li>
+  <li>不仅没了逼格，我们还要被迫做了这么多和业务逻辑“无关”的操作，而做这些的原因仅仅是因为我们觉得“计算机不够聪明”，亦或者是我们自己本身比较low！</li>
+</ul>
+
+<p>你能接受？你能接受？你能接受？<br />
+<img src="/assets/images/reduce-02.jpg" alt="" /></p>
+
+<h3 id="section-5">声明式编程</h3>
+<p>既然不能接受上述的“矬”，那就放开心胸，来接受新/别的概念吧！</p>
+
+<p>第一步，放低姿态，别把计算机当成蠢蛋，计算机语言发展至今，连智能机器人都有了，还用上古时代的指挥方式工作，是不是太自大了？</p>
+
+<p>于是我们尝试声明式编程，即告诉计算机我们的目标，而不是流程。对于解决上面的求和问题，<code>reduce</code>就是一剂强心针，直戳low B的胸口！</p>
+
+<pre><code class="language-javascript">//声明一个求和函数，接受两个参数
+//augend即是reduce后callback的第一个参数previousValue
+//addend即是reduce后callback的第二个参数currentValue
+//augend初始值为我们传入的0
+//每次计算都从addend中取area值与augend相加，并作为下一次运算时的augend
+var add = function(augend, addend){
+    return addend.price + augend;
+};
+
+var sum = pizzas.reduce(add, 0);
+
+console.log(sum);//160
+</code></pre>
+
+<p>这里我们不再关心刚才“命令式编程”下的那些与业务逻辑无关的东西，专心致志的给出一个求和函数和初始值，然后剩下的事情交给<code>reduce</code>去做，它自己知道该怎么做！</p>
+
+<p>声明式的好处是使得变更成本变低，譬如，由于节日将至，店家想为顾客减10块钱，<code>reduce</code>分分钟帮你算完，我甚至都不要改求和函数，直接将初始值减了这10块钱就好了：</p>
+
+<pre><code class="language-javascript">var sum = pizzas.reduce(add, -10);
+
+console.log(sum); //150
+</code></pre>
+
+<p>需求变更太简单，你感觉受伤了？那么来，再变一下，我希望针对不同的pizza打折，看看<code>reduce</code>是怎么操作的：</p>
+
+<pre><code class="language-javascript">//折扣表
+var discountMap = {
+    'Cheese Lovers': 0.5,
+    'Garden Veggies': 0.8,
+    'Hawaiian': 0.85
+};
+
+//打折程序
+var discount = function(augend, addend){
+    var newAddend = {
+        name: addend.name,
+        price: addend.price * discountMap[addend.name]
+    };
+    return add(augend, newAddend);
+};
+
+var sum = pizzas.reduce(discount, 0);
+
+console.log(sum); //112.75
+</code></pre>
+
+<p>我既没有修改原始数组，也没有修改之前的求和函数，只是新增了一个打折函数，然后将其传入<code>reduce</code>，内部打折后再调用求和函数计算最终值。(这种方式从设计模式角度讲，叫“装饰者模式”；单从语言风格角度讲，已经略带函数式编程的样子了)</p>
+
+<p>碉堡了有木有？<br />
+<img src="/assets/images/reduce-03.jpg" alt="" /></p>
+
+<h3 id="section-6">继续仗剑走天涯</h3>
+<p>有小伙伴儿问了，光求个和，不足以表达我的逼格，<code>reduce</code>还能不能再强大一些？</p>
+
+<p>OK，那我们再来个需求，将如下数组拍平：</p>
+
+<pre><code class="language-javascript">var array = [1, [2, [3 ,4], 5], 6];
+</code></pre>
+
+<p>成单纯一维数组：</p>
+
+<pre><code class="language-javascript">//[1, 2, 3 ,4, 5, 6]
+</code></pre>
+
+<p>如果是过去low low的你，要怎么做？不外乎又来个<code>for loop</code>：</p>
+
+<pre><code class="language-javascript">var flatten = function(arr){
+    var tmp = [];
+    for (var i = 0; i &lt; arr.length; i++){
+        if (Object.prototype.toString.call(arr[i]) === '[object Array]'){
+            Array.prototype.push.apply(tmp, flatten(arr[i]));
+            continue;
+        }
+        tmp.push(arr[i]);
+    }
+    return tmp;
+};
+
+console.log(flatten(array)); //[1, 2, 3, 4, 5, 6]
+</code></pre>
+
+<blockquote>
+  <p>我们在此不讨论各种边界检查，所以请不要纠结于这个实现能否用于生产环境</p>
+</blockquote>
+
+<p>看看，又是临时变量、又是控制遍历过程，活的累不累啊！？</p>
+
+<p>那<code>reduce</code>又能帮我们么？答案是肯定的，否则我写这么多干嘛，不废话上代码：</p>
+
+<pre><code class="language-javascript">var toString = Object.prototype.toString;
+var push = Array.prototype.push;
+
+var flatten = function(array){
+    var combine = function(arr, item){
+        return (toString.call(item) === '[object Array]' ? push.apply(arr, flatten(item)) : arr.push(item), arr);
+    };
+    return array.reduce(combine, []);
+};
+
+console.log(flatten(array)); //[1, 2, 3, 4, 5, 6]
+</code></pre>
+
+<blockquote>
+  <p>依然不考虑边界检查，请停止纠结</p>
+</blockquote>
+
+<p><code>reduce</code>又是接受一个<code>combine</code>函数和空数组作为初始值，由<code>combine</code>函数完成数组“拍平”的操作，而不去考虑什么遍历问题。</p>
+
+<p>逼格出现了，有木有？</p>
+
+<h3 id="section-7">终极潇洒</h3>
+
+<p>好吧，“拍平”一个数组也满足不了你的欲望，那我只好使出浑身解数，在基于易理解，好演示的原则下，给出我的烧脑之作了。</p>
+
+<p>众所周知，在处理异步任务时，目前最流行的方式就是<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>了，而<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all">Promise.all</a>方法可以轻松的接受多个<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>，然后任其自由并行执行，待全部<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>运行结束后，将结果重新收集，返回一个新的<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>交给用户进行下一步操作。这确实强大。</p>
+
+<p>不过我们有时还有其他需求，比如：我想将一堆<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>顺序执行，该怎么做呢？</p>
+
+<p>这里我就不展示low B写法了，直接上逼格提升代码：</p>
+
+<p>准备<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>数组：</p>
+
+<pre><code class="language-javascript">//返回一个函数，该函数的返回值是一个Promise
+var createFunc = function(ms, msg) {
+    return function() {
+        return new Promise(function(resolve) {
+            setTimeout(function() {
+                console.log(msg);
+                resolve();
+            }, ms);
+        });
+    };
+};
+
+//准备一个数组的Promise
+var getPromises = function() {
+    return [
+        createFunc(50, '理论上，这里应该是50ms后打出，应该排第三位，但实际会按顺序第一个显示'),
+        createFunc(30, '理论上，这里应该是30ms后打出，应该排第二位，但实际会按顺序第二个显示'),
+        createFunc(10, '理论上，这里应该是10ms后打出，应该排第一位，但实际会按顺序第三个显示')
+    ];
+};
+</code></pre>
+
+<p>展示核心逼格大王：</p>
+
+<pre><code class="language-javascript">//顺序执行传入的Promise数组，依赖强大的reduce，一句话搞定
+var seqPromises = function(arr) {
+    return arr.reduce((provious, p) =&gt; provious.then(p), Promise.resolve());
+};
+
+seqPromises(getPromises())
+    .then(function() {
+        console.log('这里应该最后一个打出，结束');
+    });
+
+//理论上，这里应该是50ms后打出，应该排第三位，但实际会按顺序第一个显示
+//理论上，这里应该是30ms后打出，应该排第二位，但实际会按顺序第二个显示
+//理论上，这里应该是10ms后打出，应该排第一位，但实际会按顺序第三个显示
+//这里应该最后一个打出，结束
+</code></pre>
+
+<blockquote>
+  <p>以上seqPromises函数实现包含ES2015语法，如有不懂，自行google</p>
+</blockquote>
+
+<p>逼格是否从此无极限？好好写代码吧骚年，做一个与众不同的你！</p>
+
+
+
+        <div class="right-align pagination-group">
+            
+                <a href="/tech/2015/12/10/create-web-slides" class="btn waves-effect waves-light blue lighten-2" style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                    &larr; <span lang="PREVIOUS_BTN"></span>
+                </a>
+            
+                <a href="/archive.html" class="btn waves-effect waves-light blue" style="border-radius: 0;" lang="ARCHIVE_BTN"></a>
+            
+                <a href="/tech/2016/03/09/learning-observable-by-building-observable" class="btn waves-effect waves-light blue lighten-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                    <span lang="NEXT_BTN"></span> &rarr;
+                </a>
+            
+        </div>
+        
+        <br/>
+        <hr>
+
+        
+
+
+  <div class="ds-thread" data-thread-key="/tech/2016/02/19/using-reduce" data-title="提高逼格，从reduce开始" data-url="http://leftstick.gitcafe.io/tech/2016/02/19/using-reduce"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"leftstickgithub"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+
+
+
+
+    </div>
+    <div class="col m4 hide-on-small-only">
+        <div class="card blue-grey darken-1 z-depth-2">
+            <div class="card-content white-text">
+              <span class="card-title">提高逼格，从reduce开始</span>
+            </div>
+            <div class="card-action blue-grey lighten-4">
+                <span lang="CREATED_ON"></span> 2016-02-19
+            </div>
+        </div>
+
+        <div class="card-panel grey lighten-5 z-depth-2">
+            <div class="row valign-wrapper">
+                <div class="col s12">
+                    <i class="fa fa-server fa-lg grey-text text-darken-4"></i>&nbsp;&nbsp;<strong class="grey-text text-darken-4" lang="CATEGORIES"></strong>
+                    <hr>
+                    
+                      
+                      <a href="/categories.html#tech-ref" class="waves-effect waves-light btn tag deep-orange">
+                          tech&nbsp;11
+                      </a>
+                      
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="card-panel grey lighten-5 z-depth-2">
+            <div class="row valign-wrapper">
+                <div class="col s12">
+                    <i class="fa fa-flag fa-lg grey-text text-darken-4"></i>&nbsp;&nbsp;<strong class="grey-text text-darken-4" lang="TAGS"></strong>
+                    <hr>
+                    
+                      
+                      <a href="/tags.html#JavaScript-ref" class="waves-effect waves-light btn tag deep-orange">
+                          JavaScript&nbsp;3
+                      </a>
+                      
+                      <a href="/tags.html#reduce-ref" class="waves-effect waves-light btn tag deep-orange">
+                          reduce&nbsp;1
+                      </a>
+                      
+                      <a href="/tags.html#Array-ref" class="waves-effect waves-light btn tag deep-orange">
+                          Array&nbsp;1
+                      </a>
+                      
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+          </div>
+      </main>
+
+      <div class="goto-top hide-on-med-and-down">
+          <i class="fa fa-chevron-up fa-2x"></i>
+      </div>
+
+      <footer class="page-footer" style="padding-top:0;">
+          
+          <div class="footer-copyright">
+            <div class="container">
+            &copy; 2016 Howard.Zuo, All rights reserved.
+            <a class="grey-text text-lighten-4 right" href="https://github.com/leftstick/jekyll-materiallize/blob/master/LICENSE">MIT License</a>
+            </div>
+          </div>
+      </footer>
+
+      
+
+
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="/assets/themes/materiallize/js/jquery-2.1.3.min.js"></script>
+      <script src="/assets/themes/materiallize/js/materialize.min.js"></script>
+      <script src="/assets/themes/materiallize/js/jquery.tooltipster.min.js"></script>
+      <script src="/assets/themes/materiallize/js/prism.js"></script>
+      <script src="/assets/themes/materiallize/js/prism.clojure.js"></script>
+      <script src="/assets/lang/lang.js"></script>
+      <script src="/assets/themes/materiallize/js/init.js"></script>
+  </body>
+</html>
+

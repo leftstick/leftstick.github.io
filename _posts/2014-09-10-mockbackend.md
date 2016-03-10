@@ -5,6 +5,7 @@ description: ""
 tagline: "与后端解耦开发不是梦"
 category: "tech"
 tags: ["web", "mock", "RESTful"]
+shortContent: "据说，每一个前端工程师都有周期性的心理焦躁症。在这段时间里，他们不安、牢骚满腹，甚至摇头摆尾、爬来爬去。不是因为那莫名其妙的‘每个月那几天’，就是单纯的伴随着每个开发周期的迭代。可这是为什么？迭代里到底发生了什么使他们如此焦虑"
 ---
 {% include JB/setup %}
 
@@ -24,25 +25,25 @@ tags: ["web", "mock", "RESTful"]
 
 首先，我们安装[sero-cli](https://www.npmjs.org/package/sero-cli)
 
-```powershell
+```bash
 npm install sero-cli -g
 ```
 
 然后随便找个地方，新建一个叫`routers`的目录(其实叫什么都为所谓，我这里就用`routers`，方便演示)。
 
-```powershell
+```bash
 mkdir routers
 ```
 
 进入`routers`目录
 
-```powershell
+```bash
 cd routers
 ```
 
 创建一个叫`helloworld.json`的文件
 
-```powershell
+```bash
 touch helloworld.json
 ```
 
@@ -61,18 +62,18 @@ touch helloworld.json
 
 退回至`routers`的父目录
 
-```powershell
+```bash
 cd ../
 ```
 
 启动`sero`
 
-```powershell
+```bash
 sero
 ```
 找到如下图所示的`Launch web service simulator`，回车(所有问题均取默认值)，启动模拟器
 
-![]({{ BASE_PATH }}/assets/images/mockbackend/sero.png)
+![]({{ BASE_PATH }}/assets/images/sero.png)
 
 打开浏览器，输入：`http://localhost:3000/helloworld`，你会看到如下响应数据：
 

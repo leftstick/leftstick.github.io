@@ -5,6 +5,7 @@ description: ""
 tagline: "神马乱七八糟的微信API统统不用操心啦"
 category: "tech"
 tags: ["web", "jQuery-plugin"]
+shortContent: "因为最近自己的产品要在微信公众号中推广，需要提供一些`有意义`的功能，于是被迫走上了支持微信这条不归路"
 ---
 {% include JB/setup %}
 
@@ -13,43 +14,45 @@ tags: ["web", "jQuery-plugin"]
 
 众所周知，腾讯是那样一个神奇的公司，他们的产品在商业上获得巨大成功，但技术上真的很难令人恭维，没有精益求精，只有能用就成，诺大一个公众号开发平台，我竟然找不到`真正的，关于web开发的`官方文档，有的就是个别示例，剩下的...呵呵，有一个叫`开发者交流互助`的东东了。
 
-![]({{ BASE_PATH }}/assets/images/jquerywechat/wechat_doc.png)
+![]({{ BASE_PATH }}/assets/images/wechat_doc.png)
 
 看完上面这个图后，有没有这样的感觉：
 
-    A: 你知道老王家有几口人么？
+```ini
+A: 你知道老王家有几口人么？
 
-    B: 不知道，我就在大门口见过他老婆，估计就俩人吧？
+B: 不知道，我就在大门口见过他老婆，估计就俩人吧？
 
-    C: 不会吧，那天看见还有个小孩儿进他们家，会不会是老王家孩子？
+C: 不会吧，那天看见还有个小孩儿进他们家，会不会是老王家孩子？
 
-    D: 唉！谁他妈都没去过老王家，也不认识老王，老王也不自我坦白，鬼才知道他们家几口人！
+D: 唉！谁他妈都没去过老王家，也不认识老王，老王也不自我坦白，鬼才知道他们家几口人！
+```
 
 例子或许不那么恰当，但就是这么个道理，一群开发者在死去活来的摸索，还互相慰藉，就是永远得不到正确答案！o(∩_∩)o 哈哈
 
 说了这么多，赶紧入正题，本期要讲的就是我痛苦中挣扎徘徊后写的[jQuery.wechat][jquery-wechat-url]，一个提供了统一API的、基于[jQuery.promise][promise-url]的jQuery.plugin。希望能多少帮助到大家。
 
-## 首先，安装那是相当的简单 ##
+#### 首先，安装那是相当的简单 ####
 
-```
+```bash
 bower install --save jquery-wechat
 ```
 
 > 如果不用bower的，自己从[Github][download-url]上下载、解压，那也是一样一样滴！
 
 
-## 加载，那也是水一样的自然 ##
+##### 加载，那也是水一样的自然 #####
 
-```html
+```markup
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="bower_components/jquery-wechat/dist/jquery-wechat.min.js"></script>
 ```
 
 > 你如果用了`amd`，`cmd`之类的延迟加载技术，想必你也是个行家，不用我再教你怎么配置了吧？
 
-## 使用——简单、轻松、统一、爽！ ##
+##### 使用——简单、轻松、统一、爽！ #####
 
-### 启用`jQuery.wechat`功能 ###
+###### 启用`jQuery.wechat`功能 ######
 
 ```javascript
 $.wechat.enable(); //So easy!
@@ -68,7 +71,7 @@ $.wechat.enable().done(function(){
 > 考虑到目前单页技术([SPA][spa-url])的广泛应用，工具类的设计必须考虑`启用/停用`机制，否则可能引起未知错误。
 
 
-### 隐藏/显示菜单 ###
+###### 隐藏/显示菜单 ######
 
 ```javascript
 $.wechat.hideMenu(); //隐藏菜单
@@ -77,20 +80,20 @@ $.wechat.showMenu(); //显示菜单
 
 > 启用`jQuery.wechat`之后，就可以随意调用如`hideMenu`之类的方法了，无需将其他方法写入`enable`的`done`回调之中。`jQuery.wechat`的实现原理是，如果`jQuery.wechat`还没有启用成功，所有操作会进入排队，一旦启用成功后，则顺序执行；如果启用失败，则永远不会执行。
 
-### 隐藏/显示底部工具栏 ###
+###### 隐藏/显示底部工具栏 ######
 
 ```javascript
 $.wechat.hideToolbar(); //隐藏底部工具栏
 $.wechat.showToolbar(); //显示底部工具栏
 ```
 
-### 打开扫描二维码界面 ###
+###### 打开扫描二维码界面 ######
 
 ```javascript
 $.wechat.scanQRcode();
 ```
 
-### 打开图片预览工具 ###
+###### 打开图片预览工具 ######
 
 ```javascript
 $.wechat.preview({
@@ -106,7 +109,7 @@ $.wechat.preview({
 });
 ```
 
-### 获取网络状态 ###
+###### 获取网络状态 ######
 
 ```javascript
 $.wechat.getNetworkType().done(function(response) {
@@ -116,14 +119,14 @@ $.wechat.getNetworkType().done(function(response) {
 
 `response`格式如下：
 
-```
+```ini
 network_type:wifi    wifi网络
 network_type:edge    非wifi,包含3G/2G
 network_type:fail    网络断开连接
 network_type:wwan    (2g或者3g)
 ```
 
-### 修改分享格式 ###
+###### 修改分享格式 ######
 
 每次看到别人的app分享出来的消息都带着精美的缩略图、适当的标题和描述，更有甚者消息下面还跟了一行小字指出该消息是由`谁`发送出来的；再看看你自己分享出去的消息，一个蓝色的默认空白图片，配着不搭调的标题，会不会奇怪是什么逻辑把他们塞进去的？
 
@@ -148,18 +151,18 @@ $.wechat.setShareOption({
 
 具体参考如下截图：
 
-![]({{ BASE_PATH }}/assets/images/jquerywechat/share.png)
+![]({{ BASE_PATH }}/assets/images/share.png)
 
 > 该分享格式变更会影响`发送给朋友`、`分享到朋友圈`、`分享到微博`、`发送邮件`四项功能。当设置后，再点击右上角菜单键打开菜单后，选择前述四项中的任意一项，就能看到更改后的效果
 
 
-### 关闭当前页 ###
+###### 关闭当前页 ######
 
 ```javascript
 $.wechat.closeWindow();
 ```
 
-### 停用`jQuery.wechat`机制 ###
+###### 停用`jQuery.wechat`机制 ######
 
 ```javascript
 $.wechat.destroy();

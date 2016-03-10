@@ -1,0 +1,32 @@
+"*":
+  core:
+    audioBeep: false
+  editor:
+    fontSize: 17
+    invisibles:
+      cr: "↩"
+      tab: "⇥"
+    preferredLineLength: 130
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+    tabLength: 4
+  emmet: {}
+  esformatter:
+    formatOnSave: true
+  "file-icons":
+    forceShow: true
+  "git-diff":
+    showIconsInEditorGutter: true
+  "highlight-selected": {}
+  linter:
+    showErrorTabFile: false
+    showErrorTabLine: true
+  "linter-eslint":
+    globalNodePath: "UPDATE_NODE_PATH"
+    useGlobalEslint: false
+  minimap: {}
+  "tree-view": {}
+  welcome:
+    showOnStartup: false

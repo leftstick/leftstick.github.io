@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>为Atom配置前端开发环境</title>
+
+    
+    <meta name="description" content="">
+    
+
+    <meta name="author" content="Howard.Zuo">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui"/>
+    
+    
+    <base href="/">
+    
+
+    
+    <base href="/">
+    
+
+    <!-- materiallize styles -->
+    <link href="/assets/themes/materiallize/css/materialize.min.css" rel="stylesheet">
+    <!-- fontawesome styles -->
+    <link href="/assets/themes/materiallize/css/font-awesome.min.css" rel="stylesheet">
+    <!-- tooltipster styles -->
+    <link href="/assets/themes/materiallize/css/tooltipster.css" rel="stylesheet">
+    <!-- prism styles -->
+    <link href="/assets/themes/materiallize/css/prism.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/materiallize/css/style.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/themes/materiallize/js/html5shiv.js"></script>
+      <script src="/assets/themes/materiallize/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png">
+
+    <script type="text/javascript" src="/assets/themes/materiallize/js/modernizr.js"></script>
+
+  </head>
+
+  <body>
+
+      <nav class="light-blue lighten-1" role="navigation">
+          <div class="nav-wrapper container">
+              <a id="logo-container" href="/" class="brand-logo">右领军大都督</a>
+              <ul class="right hide-on-med-and-down">
+                  
+                  
+                  
+
+
+  
+    
+  
+    
+      
+          
+          <li><a href="/index.html" lang="HOME"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/archive.html" lang="ARCHIVE"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/categories.html" lang="CATEGORIES"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/tags.html" lang="TAGS"></a></li>
+          
+      
+    
+  
+
+
+
+              </ul>
+
+              <ul id="nav-mobile" class="side-nav">
+                  
+                  
+                  
+
+
+  
+    
+  
+    
+      
+          
+          <li><a href="/index.html" lang="HOME"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/archive.html" lang="ARCHIVE"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/categories.html" lang="CATEGORIES"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/tags.html" lang="TAGS"></a></li>
+          
+      
+    
+  
+
+
+
+              </ul>
+              <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="mdi-navigation-menu"></i></a>
+          </div>
+      </nav>
+      
+      <main>
+          <div class="container">
+              
+<div class="row">
+    <div class="col s12 m8">
+        
+        
+<p>我做了2年多的<a href="http://www.sublimetext.com/3">sublime text</a>死忠粉，为了能高尚的用它，还督促公司买了<a href="http://www.sublimetext.com/3">sublime text</a>的企业版license。第一次看到<a href="https://atom.io/">Atom</a>时还是内测版本，基本没法正常使用，直到<a href="https://github.com/">Github</a>于<code>2015-06-25</code>宣布了<a href="https://atom.io/">Atom</a>的第一个正式版，我只看了一下午，就直接叛变了。</p>
+
+<p>但是，在面对<a href="https://atom.io/">Atom</a>屌爆的插件系统时，我哭了，因为强大的那些个原因，我几乎一个插件都安装不上，但是作为一个程序员，我们不能怨天尤人，不能摇头摆尾、爬来爬去，我们必须用自己勤劳的双手来追寻梦寐以求的答案！</p>
+
+<p>并且作为一个前端，我得负责任的把我探索过的最优配置分享给诸位！</p>
+
+<p>OK，废话说完，我们开始吧</p>
+
+<h4 id="section">下载</h4>
+
+<p>来，孩子，看这里: <a href="https://atom.io/">Atom 下载</a>，不出意外的话，当你打开链接地址后，网站会自动侦测出你的操作系统并且提供你合适的版本供你下载，如下图：</p>
+
+<p><img src="/assets/images/atom_config_example01.png" alt="" /></p>
+
+<h4 id="section-1">安装</h4>
+
+<p>按照你的经验与知识，一路<code>下一步</code>直到完成吧!</p>
+
+<h4 id="section-2">科学安装插件</h4>
+
+<p>由于众所周知的原因，所有的<a href="https://github.com/atom/apm">apm</a>插件或许都不能正常安装，无论是通过<a href="https://atom.io">atom</a>里的可视化插件管理器还是直接通过<code>terminal</code>安装。这不得不耗我一点时间去看下<a href="https://atom.io/">Atom</a>的插件系统到底是基于什么原理的。</p>
+
+<p>值得高兴的是，也不费劲，<a href="https://github.com/atom/apm#relation-to-npm">relation-to-npm</a>这个章节解释了<a href="https://atom.io/">atom</a>插件实际就是<code>node modules</code>，那太好了，接下来就是看看这个所谓的插件管理工具(<a href="https://github.com/atom/apm">apm</a>)到底是怎么运作的了。</p>
+
+<p>所幸的是，上面提到的文章里也指明了，我们可以简单的把<a href="https://github.com/atom/apm">apm</a>看成是<a href="http://npmjs.org/">npm</a>的一个wrapper。虽然上述文档中明确提到<a href="https://github.com/atom/apm">apm</a>没有使用<code>registry</code>机制，而是直连了<a href="https://github.com/">Github</a>，抱歉，这部分内容我还没有时间深刻研究。只能给出我的测试结果，实际上通过修改registry到<a href="http://npm.taobao.org/">淘宝npm镜像</a>确实可以解决安装插件有时特别慢的问题，虽然关于这个结果我也很奇怪，但确实可行。</p>
+
+<blockquote>
+  <p>当然通过代理，或者VPN也是比较好的办法了。</p>
+</blockquote>
+
+<p>在<code>terminal</code>下运行如下命令，避开防火墙设置:</p>
+
+<pre><code class="language-bash">apm config set strict-ssl false
+</code></pre>
+
+<p>修改registry到<a href="http://npm.taobao.org/">淘宝npm镜像</a></p>
+
+<pre><code class="language-bash">apm config set registry https://registry.npm.taobao.org
+</code></pre>
+
+<blockquote>
+  <p>如果需要删除该镜像设置，使用：<code>apm config delete registry</code></p>
+</blockquote>
+
+<h4 id="section-3">安装前端开发环境所需插件</h4>
+
+<pre><code class="language-bash">curl -L http://leftstick.gitcafe.io/assets/scripts/atom_plugin.sh | sh
+</code></pre>
+
+<p><strong>使用非模块化linting预设</strong></p>
+
+<pre><code class="language-bash">cat ~/.eslintrc_browser &gt; ~/.eslintrc
+</code></pre>
+
+<blockquote>
+  <p>该预设通常为浏览器端运行的历史遗留项目使用</p>
+</blockquote>
+
+<p><strong>使用模块化linting预设</strong></p>
+
+<pre><code class="language-bash">cat ~/.eslintrc_node &gt; ~/.eslintrc
+</code></pre>
+
+<p>上面脚本执行完成后，以下插件会被自动安装并完成配置：</p>
+
+<ul>
+  <li><a href="https://atom.io/packages/minimap">minimap</a></li>
+  <li><a href="https://atom.io/packages/linter">linter</a></li>
+  <li><a href="https://atom.io/packages/linter-eslint">linter-eslint</a></li>
+  <li><a href="https://atom.io/packages/highlight-selected">highlight-selected</a></li>
+  <li><a href="https://atom.io/packages/file-icons">file-icons</a></li>
+  <li><a href="https://atom.io/packages/esformatter">esformatter</a></li>
+  <li><a href="https://atom.io/packages/emmet">emmet</a></li>
+</ul>
+
+<h4 id="section-4">大功告成</h4>
+
+<p>让我们重启下<a href="https://atom.io">Atom</a>，然后试试这酷炫的前端开发环境吧</p>
+
+<blockquote>
+  <p>中文问题已经在<code>1.2.0</code>中解决，详见：<a href="https://atom.io/releases">RELEASE-NOTR</a></p>
+</blockquote>
+
+
+
+        <div class="right-align pagination-group">
+            
+                <a href="/tech/2015/05/27/create-your-first-cli-with-node" class="btn waves-effect waves-light blue lighten-2" style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                    &larr; <span lang="PREVIOUS_BTN"></span>
+                </a>
+            
+                <a href="/archive.html" class="btn waves-effect waves-light blue" style="border-radius: 0;" lang="ARCHIVE_BTN"></a>
+            
+                <a href="/tech/2015/07/06/javascript-interview" class="btn waves-effect waves-light blue lighten-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                    <span lang="NEXT_BTN"></span> &rarr;
+                </a>
+            
+        </div>
+        
+        <br/>
+        <hr>
+
+        
+
+
+  <div class="ds-thread" data-thread-key="/tech/2015/07/01/setup-frontend-env-with-atom" data-title="为Atom配置前端开发环境" data-url="http://leftstick.gitcafe.io/tech/2015/07/01/setup-frontend-env-with-atom"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"leftstickgithub"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+
+
+
+
+    </div>
+    <div class="col m4 hide-on-small-only">
+        <div class="card blue-grey darken-1 z-depth-2">
+            <div class="card-content white-text">
+              <span class="card-title">为Atom配置前端开发环境</span>
+            </div>
+            <div class="card-action blue-grey lighten-4">
+                <span lang="CREATED_ON"></span> 2015-07-01
+            </div>
+        </div>
+
+        <div class="card-panel grey lighten-5 z-depth-2">
+            <div class="row valign-wrapper">
+                <div class="col s12">
+                    <i class="fa fa-server fa-lg grey-text text-darken-4"></i>&nbsp;&nbsp;<strong class="grey-text text-darken-4" lang="CATEGORIES"></strong>
+                    <hr>
+                    
+                      
+                      <a href="/categories.html#tech-ref" class="waves-effect waves-light btn tag deep-orange">
+                          tech&nbsp;11
+                      </a>
+                      
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="card-panel grey lighten-5 z-depth-2">
+            <div class="row valign-wrapper">
+                <div class="col s12">
+                    <i class="fa fa-flag fa-lg grey-text text-darken-4"></i>&nbsp;&nbsp;<strong class="grey-text text-darken-4" lang="TAGS"></strong>
+                    <hr>
+                    
+                      
+                      <a href="/tags.html#Atom-ref" class="waves-effect waves-light btn tag deep-orange">
+                          Atom&nbsp;1
+                      </a>
+                      
+                      <a href="/tags.html#Frontend-ref" class="waves-effect waves-light btn tag deep-orange">
+                          Frontend&nbsp;1
+                      </a>
+                      
+                      <a href="/tags.html#tutorial-ref" class="waves-effect waves-light btn tag deep-orange">
+                          tutorial&nbsp;2
+                      </a>
+                      
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+          </div>
+      </main>
+
+      <div class="goto-top hide-on-med-and-down">
+          <i class="fa fa-chevron-up fa-2x"></i>
+      </div>
+
+      <footer class="page-footer" style="padding-top:0;">
+          
+          <div class="footer-copyright">
+            <div class="container">
+            &copy; 2016 Howard.Zuo, All rights reserved.
+            <a class="grey-text text-lighten-4 right" href="https://github.com/leftstick/jekyll-materiallize/blob/master/LICENSE">MIT License</a>
+            </div>
+          </div>
+      </footer>
+
+      
+
+
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="/assets/themes/materiallize/js/jquery-2.1.3.min.js"></script>
+      <script src="/assets/themes/materiallize/js/materialize.min.js"></script>
+      <script src="/assets/themes/materiallize/js/jquery.tooltipster.min.js"></script>
+      <script src="/assets/themes/materiallize/js/prism.js"></script>
+      <script src="/assets/themes/materiallize/js/prism.clojure.js"></script>
+      <script src="/assets/lang/lang.js"></script>
+      <script src="/assets/themes/materiallize/js/init.js"></script>
+  </body>
+</html>
+

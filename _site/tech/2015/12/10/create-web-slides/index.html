@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>分分钟做出一个WEB版幻灯片</title>
+
+    
+    <meta name="description" content="">
+    
+
+    <meta name="author" content="Howard.Zuo">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui"/>
+    
+    
+    <base href="/">
+    
+
+    
+    <base href="/">
+    
+
+    <!-- materiallize styles -->
+    <link href="/assets/themes/materiallize/css/materialize.min.css" rel="stylesheet">
+    <!-- fontawesome styles -->
+    <link href="/assets/themes/materiallize/css/font-awesome.min.css" rel="stylesheet">
+    <!-- tooltipster styles -->
+    <link href="/assets/themes/materiallize/css/tooltipster.css" rel="stylesheet">
+    <!-- prism styles -->
+    <link href="/assets/themes/materiallize/css/prism.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/materiallize/css/style.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="/assets/themes/materiallize/js/html5shiv.js"></script>
+      <script src="/assets/themes/materiallize/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-touch-icon-114x114.png">
+
+    <script type="text/javascript" src="/assets/themes/materiallize/js/modernizr.js"></script>
+
+  </head>
+
+  <body>
+
+      <nav class="light-blue lighten-1" role="navigation">
+          <div class="nav-wrapper container">
+              <a id="logo-container" href="/" class="brand-logo">右领军大都督</a>
+              <ul class="right hide-on-med-and-down">
+                  
+                  
+                  
+
+
+  
+    
+  
+    
+      
+          
+          <li><a href="/index.html" lang="HOME"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/archive.html" lang="ARCHIVE"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/categories.html" lang="CATEGORIES"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/tags.html" lang="TAGS"></a></li>
+          
+      
+    
+  
+
+
+
+              </ul>
+
+              <ul id="nav-mobile" class="side-nav">
+                  
+                  
+                  
+
+
+  
+    
+  
+    
+      
+          
+          <li><a href="/index.html" lang="HOME"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/archive.html" lang="ARCHIVE"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/categories.html" lang="CATEGORIES"></a></li>
+          
+      
+    
+  
+    
+      
+          
+          <li><a href="/tags.html" lang="TAGS"></a></li>
+          
+      
+    
+  
+
+
+
+              </ul>
+              <a href="#" data-activates="nav-mobile" class="button-collapse right"><i class="mdi-navigation-menu"></i></a>
+          </div>
+      </nav>
+      
+      <main>
+          <div class="container">
+              
+<div class="row">
+    <div class="col s12 m8">
+        
+        
+<h3 id="section">前言</h3>
+
+<p>在我们漫长的工作生涯中，无论是与他人分享某个话题时、还是向公司汇报工作时，幻灯片总是免不了的。</p>
+
+<p>但是作为一名软件工程师，每次都写powerpoint，写Keynote，是不是已经使你厌烦？甚至觉得这种事，实在不像一个软件工程师该做的。那程序员如何能够“高大上”起来？</p>
+
+<p>这就是我们今天的话题，用网页技术，手写一个web幻灯片出来。</p>
+
+<h3 id="section-1">准备工作</h3>
+
+<p>以下是我们的准备事项， 我们一步步来讲解</p>
+
+<ul>
+  <li><a href="https://nodejs.org/">node</a></li>
+  <li><a href="http://yeoman.io/">yeoman</a></li>
+  <li><a href="https://github.com/leftstick/generator-slides">generator-slides</a></li>
+  <li><a href="https://github.com/leftstick/Sero-cli">sero-cli</a></li>
+</ul>
+
+<p>首先，<a href="https://nodejs.org/">node</a> 是前端开发必备环境，如果不知道的，那就赶紧去安装一下吧，也没什么特别注释，官网下载后直接安装即可。</p>
+
+<p>再来，<a href="http://yeoman.io/">yeoman</a>是一个非常好用的脚手架平台，通过这个平台，我们有非常多的脚手架工具可以用来生成不同的应用基本结构，省却了我们不少功夫。安装<a href="http://yeoman.io/">yeoman</a>非常简单，在命令行中执行如下命令即可：</p>
+
+<pre><code class="language-bash">npm install -g yo
+</code></pre>
+<blockquote>
+  <p>在unix like操作系统下，需要在该命令之前加sudo</p>
+</blockquote>
+
+<p>然后，我们在来安装本次的重头工具——<a href="https://github.com/leftstick/generator-slides">generator-slides</a>，它就是基于<a href="http://yeoman.io/">yeoman</a>架构，开发的一个脚手架工具。安装也非常简单，命令行中执行以下命令：</p>
+
+<pre><code class="language-bash">npm install -g generator-slides
+</code></pre>
+<blockquote>
+  <p>在unix like操作系统下，需要在该命令之前加sudo</p>
+</blockquote>
+
+<p>最后，再来安装一个小工具——<a href="https://github.com/leftstick/Sero-cli">sero-cli</a>，用处我们后面再说，通过命令行执行以下命令安装：</p>
+
+<pre><code class="language-bash">npm install -g sero-cli
+</code></pre>
+<blockquote>
+  <p>在unix like操作系统下，需要在该命令之前加sudo</p>
+</blockquote>
+
+<p>准备工作，这就结束了，下面开始真正的幻灯片创建工作。</p>
+
+<h3 id="section-2">创建幻灯片</h3>
+
+<p>打开命令行，找一个你喜欢的文件夹，执行以下命令，开始创建一个幻灯片项目：</p>
+
+<pre><code class="language-bash">yo slides
+</code></pre>
+
+<p>然后命令行会提出各种问题等你回答，如下图所示：</p>
+
+<p><img src="/assets/images/create-web-slides-questions.png" alt="" /></p>
+
+<p>我们依次解释下各问题的意思：</p>
+
+<ul>
+  <li>Your slides name - 幻灯名名称/主题，这里只能输入英文</li>
+  <li>Your slides description - 幻灯名描述/副标题</li>
+  <li>Your name - 你自己的名字</li>
+  <li>Your email - 你自己的邮箱</li>
+  <li>Choose a theme of this slides - 选择一个你喜欢的幻灯片主题，可以在这里了解各主题风格</li>
+  <li>Choose plugins you’d like to add - 选择你需要用到的插件，可以在这里了解各插件用处</li>
+</ul>
+
+<p>回答完所有问题后，幻灯片项目就创建成功了</p>
+
+<h3 id="section-3">预览一下</h3>
+
+<p>到了这里，我们的幻灯片项目已经创建成功了。假设我们刚才输入的“幻灯片名称”是“demo-slides”（后面章节如有用到幻灯片名称的，我们都会使用这个名称）。</p>
+
+<p>依旧，执行如下命令：</p>
+
+<pre><code class="language-bash">cd demo-slides
+sero server -r . -p 8080 -l
+</code></pre>
+
+<p>这时，我们之前安装的<code>sero-cli</code>就有了用武之地。通过<code>sero</code>，我们在demo-slides中启动了一个端口为<code>8080</code>的web服务器，现在打开<a href="http://localhost:8080">http://localhost:8080</a>，就可以看到这个幻灯片了。</p>
+
+<p><img src="/assets/images/create-web-slides-preview.png" alt="" /></p>
+
+<h3 id="section-4">修改幻灯片</h3>
+
+<p>选择你喜欢的文本编辑器，打开demo-slides/index.html，就可以爽快的修改幻灯片内容了。</p>
+
+<p>如果碰巧你的chrome浏览器上装了<a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei">livereload</a>插件，那么我们幻灯片的内容可以热修改(修改内容后，你的网页会自动刷新)。</p>
+
+<p>由于这里我们的幻灯片基于<a href="https://github.com/hakimel/reveal.js">reveal.js</a>开发，具体幻灯片支持的功能，可以参考文档学习。</p>
+
+<h3 id="github-pages">发布到github-pages服务</h3>
+
+<p>如果你希望你的幻灯片能发布到外网，让大家都能看到，那么<code>github-pages</code>服务，是你的绝佳选择。</p>
+
+<ol>
+  <li>先到github上创建一个项目，譬如：demo-slides<br />
+<img src="/assets/images/create-web-slides-createrepo.png" alt="" /></li>
+  <li>在创建好的项目的页面中，选择复制它的repo地址：<br />
+<img src="/assets/images/create-web-slides-copyrepourl.png" alt="" /></li>
+  <li>再次打开命令行，执行如下命令：</li>
+</ol>
+
+<pre><code class="language-bash">git init
+git remote add origin git@github.com:&lt;你自己的用户名&gt;/demo-slides.git
+git checkout -b gh-pages
+git add .
+git commit -m "the first commit"
+git push -u origin gh-pages
+</code></pre>
+
+<p>稍等一会，你就可以在”http://<你自己的用户名>.github.io/demo-slides"网址，看到自己的幻灯片了</你自己的用户名></p>
+
+<p>好了，祝你玩的愉快</p>
+
+
+        <div class="right-align pagination-group">
+            
+                <a href="/tech/2015/11/07/writing-your-own-promise" class="btn waves-effect waves-light blue lighten-2" style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                    &larr; <span lang="PREVIOUS_BTN"></span>
+                </a>
+            
+                <a href="/archive.html" class="btn waves-effect waves-light blue" style="border-radius: 0;" lang="ARCHIVE_BTN"></a>
+            
+                <a href="/tech/2016/02/19/using-reduce" class="btn waves-effect waves-light blue lighten-2" style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+                    <span lang="NEXT_BTN"></span> &rarr;
+                </a>
+            
+        </div>
+        
+        <br/>
+        <hr>
+
+        
+
+
+  <div class="ds-thread" data-thread-key="/tech/2015/12/10/create-web-slides" data-title="分分钟做出一个WEB版幻灯片" data-url="http://leftstick.gitcafe.io/tech/2015/12/10/create-web-slides"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"leftstickgithub"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+
+
+
+
+    </div>
+    <div class="col m4 hide-on-small-only">
+        <div class="card blue-grey darken-1 z-depth-2">
+            <div class="card-content white-text">
+              <span class="card-title">分分钟做出一个WEB版幻灯片</span>
+            </div>
+            <div class="card-action blue-grey lighten-4">
+                <span lang="CREATED_ON"></span> 2015-12-10
+            </div>
+        </div>
+
+        <div class="card-panel grey lighten-5 z-depth-2">
+            <div class="row valign-wrapper">
+                <div class="col s12">
+                    <i class="fa fa-server fa-lg grey-text text-darken-4"></i>&nbsp;&nbsp;<strong class="grey-text text-darken-4" lang="CATEGORIES"></strong>
+                    <hr>
+                    
+                      
+                      <a href="/categories.html#tech-ref" class="waves-effect waves-light btn tag deep-orange">
+                          tech&nbsp;11
+                      </a>
+                      
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="card-panel grey lighten-5 z-depth-2">
+            <div class="row valign-wrapper">
+                <div class="col s12">
+                    <i class="fa fa-flag fa-lg grey-text text-darken-4"></i>&nbsp;&nbsp;<strong class="grey-text text-darken-4" lang="TAGS"></strong>
+                    <hr>
+                    
+                      
+                      <a href="/tags.html#web-ref" class="waves-effect waves-light btn tag deep-orange">
+                          web&nbsp;4
+                      </a>
+                      
+                      <a href="/tags.html#slides-ref" class="waves-effect waves-light btn tag deep-orange">
+                          slides&nbsp;1
+                      </a>
+                      
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+          </div>
+      </main>
+
+      <div class="goto-top hide-on-med-and-down">
+          <i class="fa fa-chevron-up fa-2x"></i>
+      </div>
+
+      <footer class="page-footer" style="padding-top:0;">
+          
+          <div class="footer-copyright">
+            <div class="container">
+            &copy; 2016 Howard.Zuo, All rights reserved.
+            <a class="grey-text text-lighten-4 right" href="https://github.com/leftstick/jekyll-materiallize/blob/master/LICENSE">MIT License</a>
+            </div>
+          </div>
+      </footer>
+
+      
+
+
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="/assets/themes/materiallize/js/jquery-2.1.3.min.js"></script>
+      <script src="/assets/themes/materiallize/js/materialize.min.js"></script>
+      <script src="/assets/themes/materiallize/js/jquery.tooltipster.min.js"></script>
+      <script src="/assets/themes/materiallize/js/prism.js"></script>
+      <script src="/assets/themes/materiallize/js/prism.clojure.js"></script>
+      <script src="/assets/lang/lang.js"></script>
+      <script src="/assets/themes/materiallize/js/init.js"></script>
+  </body>
+</html>
+
