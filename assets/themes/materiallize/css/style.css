@@ -146,11 +146,24 @@ pre[class*="language-"] code[class*="language-"] .tag{
   content: none;
 }
 
+h1{
+    45px;
+}
+h2{
+    font-size: 30px;
+}
+h3{
+    font-size: 25px;
+}
+h4{
+    font-size: 20px;
+}
+
+/*styling scrollbar*/
 pre.highlight::-webkit-scrollbar{
     height: 5px;
     width: 5px;
 }
-
 pre.highlight::-webkit-scrollbar,
 pre.highlight::-webkit-scrollbar-button
 {
