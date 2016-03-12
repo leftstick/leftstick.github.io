@@ -51,9 +51,9 @@ function myObservable(observer) {
 
 ### `SafeObserver`：写更好的`Observer` ###
 
-当我们讨论`RxJS`或者`Reactive Programming`时，`Observable`常常首先映入眼帘。但实际上，`Observer`才是那个干重活儿的人。`Observable`是懒汉，她就是一个函数，杵在那里等人`subscribe`，她加载好`Observer`，就结束任务，又变回等待被召唤的无聊函数了。另一方面，`Observer`一只保持活跃，不断从`Producer`那里接收消息。
+当我们讨论`RxJS`或者`Reactive Programming`时，`Observable`常常首先映入眼帘。但实际上，`Observer`才是那个干重活儿的人。`Observable`是懒汉，她就是一个函数，杵在那里等人`subscribe`，她加载好`Observer`，就结束任务，又百无聊赖等待被临幸了。另一方面，`Observer`一只保持活跃，不断从`Producer`那里接收消息。
 
-从现在起，你可以使用包含了`next`、`error`和`complete`方法的POJO(Plain-Old JavaScript Object)来subscribe`Observable`，但写区区一个POJO不过是开始。在`RxJS`5里，我们会提供一些保障机制给开发者，下面就是一些比较重要的保障原则：
+从现在起，你可以使用包含了`next`、`error`和`complete`方法的POJO(Plain-Old JavaScript Object)来subscribe `Observable`，但写区区一个POJO不过是开始。在`RxJS`5里，我们会提供一些保障机制给开发者，下面就是一些比较重要的保障原则：
 
 1. 传入的`Observer`对象可以不实现所有规定的方法
 2. 在`complete`或者`error`触发之后再调用`next`方法是没用的
@@ -118,7 +118,7 @@ function map(source, project) {
 }
 ```
 
-关于`Operator`最重要也最值得注意的是：当你`subscribe`她返回的的那个新的`Observable`时，她创建了一个`mapObserver`来做最终工作，并将其核前一个`Observer`链了起来。构建`Operator`链式结构，简单点说就是创建了一个模板在`Subscription`时把`Observers`链在一起。
+关于`Operator`最重要也最值得注意的是：当你`subscribe`她返回的的那个新的`Observable`时，她创建了一个`mapObserver`来做最终工作，并将其与前一个`Observer`链了起来。构建`Operator`链式结构，简单点说就是创建了一个模板在`Subscription`时把`Observers`链在一起。
 
 
 ### 改进`Observable`：让`Operator`的链式帅起来 ###
@@ -129,9 +129,9 @@ function map(source, project) {
 map(map(myObservable, (x) => x + 1), (x) => x + 2);
 ```
 
-现在对着上面的代码，想象一下有5、6个嵌套着的操作员(operator)，再加上更多、更复杂的参数。基本上就没法儿看了
+现在对着上面的代码，想象一下有5、6个嵌套着的`Operator`，再加上更多、更复杂的参数。基本上就没法儿看了
 
-你也可以试下[Texas Toland](https://twitter.com/AppShipIt/status/701806357012471809)提议的简单版管道实现，合并压缩一个数组的操作员(operator)并生成一个最终的`Observable`，不过这意味着要写更复杂的操作员(operator)，上代码：[JSBin](http://jsbin.com/vipuqiq/6/edit?js,console,output)。其实写完后你会发现，代码也不怎么漂亮：
+你也可以试下[Texas Toland](https://twitter.com/AppShipIt/status/701806357012471809)提议的简单版管道实现，合并压缩一个数组的`Operator`并生成一个最终的`Observable`，不过这意味着要写更复杂的`Operator`，上代码：[JSBin](http://jsbin.com/vipuqiq/6/edit?js,console,output)。其实写完后你会发现，代码也不怎么漂亮：
 
 ```javascript
 pipe(myObservable, map(x => x + 1), map(x => x + 2));
@@ -143,7 +143,7 @@ pipe(myObservable, map(x => x + 1), map(x => x + 2));
 myObservable.map(x => x + 1).map(x => x + 2);
 ```
 
-所幸，我们已经有了这样一个`Observable`类。她不增加现有操作元(operator)实现的复杂度，不过我猜这会以龌龊的prototype作为代价，下面看看使用我们的新实现([JSBin](http://jsbin.com/quqibe/edit?js,console,output))后，链式调用操作员(operator)会是什么样子：
+所幸，我们已经有了这样一个`Observable`类，我们可以利用她在不增加复杂度的情况下完成多`Operators`的链式结构，不过之前的例子没有是用到牛逼的prototype，下面我们采用prototype方式再次实现一下`Observable`，([JSBin](http://jsbin.com/quqibe/edit?js,console,output))：
 
 ```javascript
 Observable.prototype.map = function (project) {
@@ -163,7 +163,7 @@ Observable.prototype.map = function (project) {
 
 ### 嫌长别看：`Observable`就是函数，她接受`Observer`作为参数，又返回一个函数 ###
 
-牢记，读完了上面所有内容，所有的设计都是基于一个简单函数。`Observable`就是函数，她接受`Observer`作为参数，又返回一个函数。再没别的了。如果你写了一个函数，接受一个`Observer`作为参数，又返回一个函数，那么，她是异步的、还是同步的？都不是。她就是个函数。任何函数的行为都依赖于她具体的实现内容。所以当你处理一个`Observable`时，就把她当成一个普通函数，里面没有什么黑魔法。当你要构建操作员(operator)链时，你做的其实就是生成一个函数将一堆`Observer`链在一起，然后让真正的数据依次穿过他们。
+牢记，读完了上面所有内容，所有的设计都是基于一个简单函数。`Observable`就是函数，她接受`Observer`作为参数，又返回一个函数。再没别的了。如果你写了一个函数，接受一个`Observer`作为参数，又返回一个函数，那么，她是异步的、还是同步的？都不是。她就是个函数。任何函数的行为都依赖于她具体的实现内容。所以当你处理一个`Observable`时，就把她当成一个普通函数，里面没有什么黑魔法。当你要构建`Operator`链时，你做的其实就是生成一个函数将一堆`Observers`链在一起，然后让真正的数据依次穿过他们。
 
 >注意：上面我们给出的`Observable`实例实现依旧返回一个函数，但`RxJS`和`es-observable`返回的是`Subscription`对象。`Subscription`对象是更好的设计，但我恐怕得专门写篇关于她的文章。我在这里返回一个撤销订阅`unsubscribe`的函数仅仅是为了保持例子在一个简单易懂的范围。
 
