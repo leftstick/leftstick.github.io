@@ -244,3 +244,6 @@ M: A -> A
 ```
 
 更多内容，且看下回分解！
+
+
+原文地址：[Functional JavaScript - functors](http://functionaljavascript.blogspot.com/2013/07/functors.html)
