@@ -121,20 +121,21 @@ npm run dev
 
 再来看我们app界面，变成了如下样子：
 
-![]({{ BASE_PATH }}/assets/images/electron-debug02.png)
-
-
-来试试我们这个todo应用吧？
-
 ![]({{ BASE_PATH }}/assets/images/electron-debug03.gif)
 
 
 ## 生成应用程序包 ##
 
-在之前生成项目的过程中，在“Which platform you'd like to package to?”这个问题里，你可选择将来要支持的操作系统。
+之前生成项目的过程中，在“Which platform you'd like to package to?”这个问题里，你可选择将来要支持的操作系统，以便生成相应的打包代码。
 
 那么现在我们就来生成一个程序包吧：
 
 ```shell
 npm run dist
 ```
+
+最后生成的可执行程序出就现在了如下位置：
+
+![]({{ BASE_PATH }}/assets/images/electron-release.png)
+
+愉快的双击使用吧！！！
