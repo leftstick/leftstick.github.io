@@ -36,11 +36,11 @@ shortContent: "说起桌面应用，想必大家使用过的就已经海了去�
 ## 准备工作 ##
 
 * 安装[nodejs](https://nodejs.org/en/)
+* 安装[yeoman](http://yeoman.io/)
 
 ## 使用程序生成器 ##
 
 ```shell
-npm install -g yo
 npm install -g generator-electron-naive
 ```
 
