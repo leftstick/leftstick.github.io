@@ -10,7 +10,6 @@ shortContent: "不可变性(<code>Immutability</code>)是函数式编程的核�
 
 不可变性(`Immutability`)是函数式编程的核心原则，在面向对象编程里也有大量应用。在这篇文章里，我会给大家秀一下到底什么是不可变性(`Immutability`)、她为什么还这么屌、以及在`JavaScript`中怎么应用。
 
-
 ## 什么是不可变性(`Immutability`)？ ##
 
 还是先来看看关于可变性(`Mutability`)的教条式定义：“liable or subject to change or alteration(译者注：真他妈难翻，就简单理解成'易于改变的'吧)”。在编程领域里，我们用可变性(`Mutability`)来描述这样一种对象，它在创建之后状态依旧可被改变。那当我们说不可变(`Immutable`)时，就是可变(`Mutable`)的对立面了(译者注：原谅我翻的废话又多起来) － 意思是，创建之后，就再也不能被修改了。
