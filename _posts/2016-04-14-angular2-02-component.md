@@ -27,6 +27,8 @@ shortContent: "<a href=\"http://leftstick.github.io/tech/2016/04/09/angular2-01-
 3. 当用户点击复选框时，需要向上广播该事件，由父组件(调用方)决定点击时该做什么。这里我们需要在父组件里改变`component`的`isChecked`状态，并使`component`重绘
 4. 她必须是一个处理[Unidirectional Data Flow](https://medium.com/@AdamRNeary/unidirectional-data-flow-yes-flux-i-am-not-so-sure-b4acf988196c#.bxd6ripaq)(单向数据流)的`component`，意思是传入参数必须[不可变(Immutable)](http://leftstick.github.io/tech/2016/04/09/immutability-in-javascript)
 
+>注：第4步里，我们使用的`Unidirectional Data Flow`模型来更新数据，并没有涉及到任何[Reactive Programming](https://en.wikipedia.org/wiki/Reactive_programming)
+
 为了完成以上需求，我们需要了解下面知识点
 
 ## 什么是`component` ##
