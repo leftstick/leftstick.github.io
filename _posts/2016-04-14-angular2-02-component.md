@@ -4,7 +4,7 @@ title: "angular2初入眼帘之－了解component"
 description: ""
 category: "tech"
 tags: ["angular2", "tutorial", "component"]
-shortContent: "<a href=\"http://leftstick.github.io/tech/2016/04/09/angular2-01-env\">上一章</a>里我们讲了如何为<code>angular2</code>搭建开发环境(还没搭起来的赶紧去看哦)，并使之跑起来我们的第一个“Hello World”。当然也有不少朋友反映环境搭建似乎比较复杂，整整一篇教程，最后只简单输出了一句话！这里我要说一句，学习新知识的确有一个阵痛的过程，尤其像<code>angular2</code>这种框架，引入了大量以前“前端”并不关心(没有需求)的技术栈，这使得对于之前没有接触过这些概念的朋友的学习曲线陡然飙升，相信不少人看了<a href=\"http://leftstick.github.io/tech/2016/04/09/angular2-01-env\">上一章</a>里开篇时的那些名词后已经认识到这一点了！本教程主打实际操作，但也不会完全忽略理论，我们边做边理解。今天就接着<a href=\"http://leftstick.github.io/tech/2016/04/09/angular2-01-env\">上一章</a>的余温，我们来写一个简单<code>component</code>。"
+shortContent: "<a href=\"http://leftstick.github.io/tech/2016/04/09/angular2-01-env\">上一章</a>里我们讲了如何为<code>angular2</code>搭建开发环境(还没搭起来的赶紧去看哦)，并使之跑起来我们的第一个“My First Angular 2 App”。当然也有不少朋友反映环境搭建似乎比较复杂，整整一篇教程，最后只简单输出了一句话！这里我要说一句，学习新知识的确有一个阵痛的过程，尤其像<code>angular2</code>这种框架，引入了大量以前“前端”并不关心(没有需求)的技术栈，这使得对于之前没有接触过这些概念的朋友的学习曲线陡然飙升，相信不少人看了<a href=\"http://leftstick.github.io/tech/2016/04/09/angular2-01-env\">上一章</a>里开篇时的那些名词后已经认识到这一点了！本教程主打实际操作，但也不会完全忽略理论，我们边做边理解。今天就接着<a href=\"http://leftstick.github.io/tech/2016/04/09/angular2-01-env\">上一章</a>的余温，我们来写一个简单<code>component</code>。"
 ---
 {% include JB/setup %}
 
