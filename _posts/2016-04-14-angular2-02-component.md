@@ -110,6 +110,7 @@ import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'a
     //脏检查策略，OnPush指当且仅当传入参数的reference发生变更时
     //触发组件重绘。这和React中的shouldComponentUpdate异曲同工，
     //不过更先进(因为React还是需要手动实现的)
+    //这也是上一步里itemInfo必须重新赋值的原因
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'checkable-item',
     //仅在当前component作用域下有效的class
