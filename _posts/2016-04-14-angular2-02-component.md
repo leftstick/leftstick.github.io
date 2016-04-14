@@ -173,6 +173,8 @@ npm start
 
 ![]({{ BASE_PATH }}/assets/images/angular2-02-preview.gif)
 
+下回预告：小刀升级 － 多`component`协作
+
 [previous-url]: http://leftstick.github.io/tech/2016/04/09/angular2-01-env
 [ng-url]: https://angularjs.org/
 [ng-dir-url]: https://docs.angularjs.org/guide/directive
