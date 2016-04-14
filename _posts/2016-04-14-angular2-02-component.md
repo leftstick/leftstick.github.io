@@ -20,7 +20,7 @@ shortContent: "<a href=\"http://leftstick.github.io/tech/2016/04/09/angular2-01-
 
 ![]({{ BASE_PATH }}/assets/images/angular2-02-preview.gif)
 
-非常简单的一个`component`，有木有？那好，我们现在要做的就是为这样一个`component`描述需求：
+(注意动画的部分)非常简单的一个`component`，有木有？那好，我们现在要做的就是为这样一个`component`描述需求：
 
 1. 她要能接受一个`object`用来描述初始值，如：`isChecked`(是否选中)、 `txt`(显示文本)
 2. 当选中时，需要有横线覆盖文本；反之亦然
