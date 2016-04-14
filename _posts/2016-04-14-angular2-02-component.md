@@ -60,6 +60,7 @@ import {CheckableItem, Item} from './CheckableItem';
     <checkable-item [item]="itemInfo" (onItemClicked)="toggle($event)">
     </checkable-item>
     `,
+    //引入新的CheckableItem，使之可以在AppComponent里使用
     directives: [CheckableItem]
 })
 export class AppComponent implements OnInit {
