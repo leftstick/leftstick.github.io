@@ -173,7 +173,7 @@ npm start
 
 ![]({{ BASE_PATH }}/assets/images/angular2-02-preview.gif)
 
-下回预告：小刀升级 － 多`component`协作
+下回预告：[小刀升级 － 多`component`协作](http://leftstick.github.io/tech/2016/04/14/angular2-03-multicomponents)
 
 [previous-url]: http://leftstick.github.io/tech/2016/04/09/angular2-01-env
 [ng-url]: https://angularjs.org/
