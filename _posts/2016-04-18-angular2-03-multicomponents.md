@@ -11,7 +11,7 @@ shortContent: "<a href=\"http://leftstick.github.io/tech/2016/04/14/angular2-02-
 
 ## 前集回顾 ##
 
-[上一章][previous-url]里我们讲了如何在`angular2`下开发一个`component`(还没做的赶紧去学吧)。我们使用了[Unidirectional Data Flow][Unidirectional-url]模式书写`component`，并引入了(Immutable)](http://leftstick.github.io/tech/2016/04/09/immutability-in-javascript)思想，这些以前只在[React][react-url]里见到的设计，现在`angular2`里也有体现，并且在本章中会着重讲解多`components`的协作。
+[上一章][previous-url]里我们讲了如何在`angular2`下开发一个`component`(还没做的赶紧去学吧)。我们使用了[Unidirectional Data Flow][Unidirectional-url]模式书写`component`，并引入了[Immutable](http://leftstick.github.io/tech/2016/04/09/immutability-in-javascript)思想，这些以前只在[React][react-url]里见到的设计，现在`angular2`里也有体现，并且在本章中会着重讲解多`components`的协作。
 
 本章源码：[multicomponents](https://github.com/leftstick/angular2-lesson/tree/master/examples/multicomponents)
 
@@ -190,6 +190,8 @@ export class Counter implements OnChanges {
     }
 }
 ```
+
+组件树的整体编写思路就是[Unidirectional Data Flow][Unidirectional-url]，所以数据的变更都是[Immutable](http://leftstick.github.io/tech/2016/04/09/immutability-in-javascript)的。如果之前写过[React][react-url]，那对于这种书写方式一定无比熟悉。
 
 OK，代码写到这里基本就结束了，看看效果吧
 
