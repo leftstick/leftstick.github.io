@@ -191,7 +191,7 @@ export class Counter implements OnChanges {
 }
 ```
 
-组件树的整体编写思路就是[Unidirectional Data Flow][Unidirectional-url]，所以数据的变更都是[Immutable](http://leftstick.github.io/tech/2016/04/09/immutability-in-javascript)的。如果之前写过[React][react-url]，那对于这种书写方式一定无比熟悉。
+组件树的整体编写思路就是[Unidirectional Data Flow][Unidirectional-url]，所以数据的变更都是[Immutable](http://leftstick.github.io/tech/2016/04/09/immutability-in-javascript)的。如果之前写过[React][react-url]，那对于这种书写方式一定无比熟悉。每次数据的变更，无论是`InputItem`还是`CheckableItem`，都将变化冒泡到`AppComponent`，然后由`AppComponent`再向下逐级推送各组件是否重绘。
 
 OK，代码写到这里基本就结束了，看看效果吧
 
