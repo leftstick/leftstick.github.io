@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Angular2新人常犯的5个错误"
+title: "[译]Angular2新人常犯的5个错误"
 description: ""
 category: "tech"
 tags: ["angular2", "mistakes"]
@@ -406,3 +406,6 @@ export class MyList implements AfterContentInit {
 ## 结论 ##
 
 希望本章的解释对你有用。Happy coding!
+
+
+原文地址：[5 Rookie Mistakes to Avoid with Angular 2](http://angularjs.blogspot.com/2016/04/5-rookie-mistakes-to-avoid-with-angular.html)
