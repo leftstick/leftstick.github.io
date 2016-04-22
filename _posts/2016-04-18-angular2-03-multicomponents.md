@@ -203,7 +203,7 @@ npm start
 
 ![]({{ BASE_PATH }}/assets/images/angular2-03-preview.gif)
 
-下回预告：使用`service`
+下回预告：[使用`service`](http://leftstick.github.io/tech/2016/04/22/angular2-04-service)
 
 [previous-url]: http://leftstick.github.io/tech/2016/04/14/angular2-02-component
 [ng-url]: https://angularjs.org/
