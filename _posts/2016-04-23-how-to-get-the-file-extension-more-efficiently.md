@@ -61,23 +61,69 @@ console.log(getFileExtension3('filename.with.many.dots.ext')); // 'ext'
 
 ## 比较 ##
 
-| 方案           | 参数           | 结果  |
-| ------------- |:-------------:| -----:|
-| 正则表达式      | ''            | undefined |
-|               | 'filename'    | undefined |
-|               | 'filename.txt'    | 'txt' |
-|               | '.hiddenfile'    | 'hiddenfile' |
-|               | 'filename.with.many.dots.ext'    | 'ext' |
-| `String`的`split`      | ''      |   '' |
-|                        | 'filename'      |   'filename' |
-|                        | 'filename.txt'      |   'txt' |
-|                        | '.hiddenfile'      |   'hiddenfile' |
-|                        | 'filename.with.many.dots.ext'      |   'ext' |
-| `String`的`slice`和`lastIndexOf` | ''      |    '' |
-|                                 | 'filename'      |    '' |
-|                                 | 'filename.txt'      |    'txt' |
-|                                 | '.hiddenfile'      |    'hiddenfile' |
-|                                 | 'filename.with.many.dots.ext'      |    'ext' |
+<table>
+<thead>
+    <tr>
+        <th>方案</th>
+        <th>参数</th>
+        <th>结果</th>
+    </tr>
+</thead>
+
+<tbody>
+    <tr>
+        <td>正则表达式</td>
+        <td>
+            ''<br/>
+            'filename'<br/>
+            'filename.txt'<br/>
+            '.hiddenfile'<br/>
+            'filename.with.many.dots.ext'
+        </td>
+        <td>
+            undefined<br/>
+            undefined<br/>
+            'txt'<br/>
+            'hiddenfile'<br/>
+            'ext'
+        </td>
+    </tr>
+    <tr>
+        <td>`String`的`split`</td>
+        <td>
+            ''<br/>
+            'filename'<br/>
+            'filename.txt'<br/>
+            '.hiddenfile'<br/>
+            'filename.with.many.dots.ext'
+        </td>
+        <td>
+            ''<br/>
+            'filename'<br/>
+            'txt'<br/>
+            'hiddenfile'<br/>
+            'ext'
+        </td>
+    </tr>
+    <tr>
+        <td>`String`的`slice`和`lastIndexOf`</td>
+        <td>
+            ''<br/>
+            'filename'<br/>
+            'filename.txt'<br/>
+            '.hiddenfile'<br/>
+            'filename.with.many.dots.ext'
+        </td>
+        <td>
+            ''<br/>
+            ''<br/>
+            'txt'<br/>
+            ''<br/>
+            'ext'
+        </td>
+    </tr>
+</tbody>
+</table>
 
 ## 在线演示和性能 ##
 
