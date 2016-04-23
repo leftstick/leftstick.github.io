@@ -72,55 +72,69 @@ console.log(getFileExtension3('filename.with.many.dots.ext')); // 'ext'
 
 <tbody>
     <tr>
-        <td>正则表达式</td>
-        <td>
-            ''<br/>
-            'filename'<br/>
-            'filename.txt'<br/>
-            '.hiddenfile'<br/>
-            'filename.with.many.dots.ext'
-        </td>
-        <td>
-            undefined<br/>
-            undefined<br/>
-            'txt'<br/>
-            'hiddenfile'<br/>
-            'ext'
-        </td>
+        <td rowspan="5">正则表达式</td>
+        <td>''</td>
+        <td>undefined</td>
     </tr>
     <tr>
-        <td>`String`的`split`</td>
-        <td>
-            ''<br/>
-            'filename'<br/>
-            'filename.txt'<br/>
-            '.hiddenfile'<br/>
-            'filename.with.many.dots.ext'
-        </td>
-        <td>
-            ''<br/>
-            'filename'<br/>
-            'txt'<br/>
-            'hiddenfile'<br/>
-            'ext'
-        </td>
+        <td>'filename'</td>
+        <td>undefined</td>
     </tr>
     <tr>
-        <td>`String`的`slice`和`lastIndexOf`</td>
-        <td>
-            ''<br/>
-            'filename'<br/>
-            'filename.txt'<br/>
-            '.hiddenfile'<br/>
-            'filename.with.many.dots.ext'
-        </td>
-        <td>
-            ''<br/>
-            ''<br/>
-            'txt'<br/>
-            ''<br/>
-            'ext'
-        </td>
+        <td>'filename.txt'</td>
+        <td>'txt'</td>
+    </tr>
+    <tr>
+        <td>'.hiddenfile'</td>
+        <td>'hiddenfile'</td>
+    </tr>
+    <tr>
+        <td>'filename.with.many.dots.ext'</td>
+        <td>'ext'</td>
+    </tr>
+
+    <tr>
+        <td rowspan="5">`String`的`split`</td>
+        <td>''</td>
+        <td>''</td>
+    </tr>
+    <tr>
+        <td>'filename'</td>
+        <td>'filename'</td>
+    </tr>
+    <tr>
+        <td>'filename.txt'</td>
+        <td>'txt'</td>
+    </tr>
+    <tr>
+        <td>'.hiddenfile'</td>
+        <td>'hiddenfile'</td>
+    </tr>
+    <tr>
+        <td>'filename.with.many.dots.ext'</td>
+        <td>'ext'</td>
+    </tr>
+
+    <tr>
+        <td rowspan="5">`String`的`slice`和`lastIndexOf`</td>
+        <td>''</td>
+        <td>''</td>
+    </tr>
+    <tr>
+        <td>'filename'</td>
+        <td>''</td>
+    </tr>
+    <tr>
+        <td>'filename.txt'</td>
+        <td>'txt'</td>
+    </tr>
+    <tr>
+        <td>'.hiddenfile'</td>
+        <td>''</td>
+    </tr>
+    <tr>
+        <td>'filename.with.many.dots.ext'</td>
+        <td>'ext'</td>
     </tr>
 </tbody>
 </table>
