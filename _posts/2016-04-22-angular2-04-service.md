@@ -14,7 +14,7 @@ shortContent: "<a href=\"http://leftstick.github.io/tech/2016/04/18/angular2-03-
 
 本章源码：[service](https://github.com/leftstick/angular2-lesson/tree/master/examples/service)
 
-本章使用`angular2`版本为：`2.0.0-beta.15`
+本章使用`angular2`版本为：`2.0.0-beta.16`
 
 先来看看我们将要完成的效果图：
 
