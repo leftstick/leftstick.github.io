@@ -14,7 +14,7 @@ shortContent: "<a href=\"http://leftstick.github.io/tech/2016/04/09/angular2-01-
 
 本章源码：[component](https://github.com/leftstick/angular2-lesson/tree/master/examples/component)
 
-本章使用`angular2`版本为：`2.0.0-beta.16`
+本章使用`angular2`版本为：`2.0.0-rc.1`
 
 先来看看我们将要完成的效果图：
 
@@ -47,7 +47,7 @@ shortContent: "<a href=\"http://leftstick.github.io/tech/2016/04/09/angular2-01-
 假设我们将在[上一章][previous-url]中的`AppComponent`里使用这个新的`component`，根据之前的需求描述，我们的使用场景应该是这个样子的 :
 
 ```javascript
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit} from '@angular/core';
 
 //这里CheckableItem就是我们即将设计的新component
 import {CheckableItem, Item} from './CheckableItem';
@@ -106,7 +106,7 @@ touch ts/CheckableItem.ts
 向刚创建的`ts/CheckableItem.ts`文件里写入如下内容：
 
 ```javascript
-import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
     //脏检查策略，OnPush指当且仅当传入参数的reference发生变更时
