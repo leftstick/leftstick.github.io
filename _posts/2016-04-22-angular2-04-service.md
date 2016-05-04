@@ -14,7 +14,7 @@ shortContent: "<a href=\"http://leftstick.github.io/tech/2016/04/18/angular2-03-
 
 本章源码：[service](https://github.com/leftstick/angular2-lesson/tree/master/examples/service)
 
-本章使用`angular2`版本为：`2.0.0-beta.16`
+本章使用`angular2`版本为：`2.0.0-rc.1`
 
 先来看看我们将要完成的效果图：
 
@@ -31,7 +31,7 @@ shortContent: "<a href=\"http://leftstick.github.io/tech/2016/04/18/angular2-03-
 ### 重构`ts/app.ts` ###
 
 ```javascript
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit} from '@angular/core';
 
 import {InputItem} from './InputItem';
 import {CheckableItem, Item} from './CheckableItem';
@@ -45,7 +45,7 @@ import {ItemService} from './ItemService';
     template: `
     <h1>My First Angular 2 App</h1>
     <input-item (onItemAdded)="addItem($event)"></input-item>
-    <checkable-item *ngFor="#itemInfo of items; #i = index" [item]="itemInfo" (onItemClicked)="toggle($event, i)">
+    <checkable-item *ngFor="let itemInfo of items; let i = index" [item]="itemInfo" (onItemClicked)="toggle($event, i)">
     </checkable-item>
     <p *ngIf="loading">Loading</p>
     <counter *ngIf="!loading" [items]="items"></counter>
@@ -98,7 +98,7 @@ touch ts/ItemService.ts
 向刚创建的`ts/ItemService.ts`中，添加如下内容：
 
 ```javascript
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 
 import {Item} from './CheckableItem';
 
@@ -153,7 +153,7 @@ OK，我确信这个代码是可以运行的，那到底什么是`service`？我
 必须通过`@Injectable`装饰器声明
 
 ```javascript
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class ItemService {
@@ -200,7 +200,7 @@ providers: [ItemService]
 是不是感觉有点儿矬了，如果能有个单独的`ItemList`组件该多好？像这样使用：
 
 ```javascript
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit} from '@angular/core';
 
 import {InputItem} from './InputItem';
 import {Item} from './CheckableItem';
@@ -263,7 +263,7 @@ touch ts/ItemList.ts
 向刚创建的`ts/ItemList.ts`中，添加如下内容：
 
 ```javascript
-import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
 
 import { CheckableItem, Item } from './CheckableItem';
 
@@ -271,7 +271,7 @@ import { CheckableItem, Item } from './CheckableItem';
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'item-list',
     template: `
-    <checkable-item *ngFor="#item of data; #i=index" [item]="item" (onItemClicked)="clickItem($event, i)">
+    <checkable-item *ngFor="let item of data; let i=index" [item]="item" (onItemClicked)="clickItem($event, i)">
     </checkable-item>
     <p *ngIf="showLoading">Loading</p>
     `,
