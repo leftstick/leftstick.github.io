@@ -15,7 +15,7 @@ shortContent: "<a href=\"http://leftstick.github.io/tech/2016/04/14/angular2-02-
 
 本章源码：[multicomponents](https://github.com/leftstick/angular2-lesson/tree/master/examples/multicomponents)
 
-本章使用`angular2`版本为：`2.0.0-beta.16`
+本章使用`angular2`版本为：`2.0.0-rc.1`
 
 先来看看我们将要完成的效果图：
 
@@ -54,7 +54,7 @@ shortContent: "<a href=\"http://leftstick.github.io/tech/2016/04/14/angular2-02-
 ### 重构`ts/app.ts` ###
 
 ```javascript
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 //引入输入component
 import {InputItem} from './InputItem';
@@ -75,7 +75,7 @@ import {Counter} from './Counter';
         使用*ngFor遍历items变量。详情:
         https://angular.io/docs/ts/latest/guide/template-syntax.html#!#ngFor
     -->
-    <checkable-item *ngFor="#itemInfo of items; #i = index" [item]="itemInfo" (onItemClicked)="toggle($event, i)">
+    <checkable-item *ngFor="let itemInfo of items; let i = index" [item]="itemInfo" (onItemClicked)="toggle($event, i)">
     </checkable-item>
     <!--
         counter里，传入items
@@ -115,7 +115,7 @@ touch ts/InputItem.ts
 向刚创建的`ts/InputItem.ts`中，添加如下内容：
 
 ```javascript
-import {Component, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
     //这里仍然使用OnPush策略
@@ -158,7 +158,7 @@ touch ts/Counter.ts
 向刚创建的`ts/Counter.ts`中，添加如下内容：
 
 ```javascript
-import {Component, OnChanges, SimpleChange, Input, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, OnChanges, SimpleChange, Input, ChangeDetectionStrategy} from '@angular/core';
 
 import {Item} from './CheckableItem';
 
