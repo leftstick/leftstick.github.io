@@ -36,9 +36,9 @@ shortContent: "Transform your plain text into static websites and blogs."
 > 以下步骤凡引用到`Github`用户名的地方，都用`tobiasahlin`代替，以免引起不必要的疑
     惑
 
-    如下图：
+如下图：
 
-    ![]({{ BASE_PATH }}/assets/images/create-blog-createrepo.png)
+![]({{ BASE_PATH }}/assets/images/create-blog-createrepo.png)
 
 * **安装`Jekyll-Materialize`**
 
