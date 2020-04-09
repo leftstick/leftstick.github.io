@@ -17,6 +17,6 @@ git add -A
 git commit -m 'deploy'
 
 # if you are deploying to https://leftstick.github.io
-git push -f git@github.com:leftstick/leftstick.github.com.git master
+git push -f git@github.com:leftstick/leftstick.github.io.git master
 
 cd -
