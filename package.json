@@ -1,15 +1,14 @@
 {
-  "name": "leftstick.github.com",
+  "name": "leftstick.github.io",
   "version": "1.0.0",
   "description": "blog of howard",
-  "main": "index.js",
   "scripts": {
     "dev": "vuepress dev blog",
     "build": "vuepress build blog"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leftstick/leftstick.github.com.git"
+    "url": "git+https://github.com/leftstick/leftstick.github.io.git"
   },
   "keywords": [
     "Blog"
@@ -17,9 +16,9 @@
   "author": "Howard.Zuo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/leftstick/leftstick.github.com/issues"
+    "url": "https://github.com/leftstick/leftstick.github.io/issues"
   },
-  "homepage": "https://github.com/leftstick/leftstick.github.com#readme",
+  "homepage": "https://github.com/leftstick/leftstick.github.io#readme",
   "devDependencies": {
     "@vuepress/theme-blog": "^2.2.0",
     "vuepress": "^1.4.0"
