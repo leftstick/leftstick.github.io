@@ -73,7 +73,7 @@ sero
 ```
 找到如下图所示的`Launch web service simulator`，回车(所有问题均取默认值)，启动模拟器
 
-![]({{ BASE_PATH }}/assets/images/sero.png)
+<img :src="$withBase('/images/sero.png')" alt="sero">
 
 打开浏览器，输入：`http://localhost:3000/helloworld`，你会看到如下响应数据：
 
