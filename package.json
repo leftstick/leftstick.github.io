@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "blog of howard",
   "scripts": {
-    "dev": "vuepress dev blog",
-    "build": "vuepress build blog"
+    "start": "vuepress dev blog",
+    "predeploy": "vuepress build blog",
+    "deploy": "bash ./deploy.sh"
   },
   "repository": {
     "type": "git",

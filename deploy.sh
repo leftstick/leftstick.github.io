@@ -3,9 +3,6 @@
 # abort on errors
 set -e
 
-# build
-yarn build
-
 # navigate into the build output directory
 cd blog/.vuepress/dist
 
