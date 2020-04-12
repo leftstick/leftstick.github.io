@@ -10,8 +10,11 @@ cd blog/.vuepress/dist
 # echo 'www.example.com' > CNAME
 
 git init
+git config --local user.email "leftstick@qq.com"
+git config --local user.name "Howard.Zuo"
 git add -A
 git commit -m 'deploy'
+
 
 # if you are deploying to https://leftstick.github.io
 git push -f git@github.com:leftstick/leftstick.github.io.git master
