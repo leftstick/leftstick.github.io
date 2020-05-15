@@ -293,7 +293,9 @@ const testcaseExecFunc = function (assert, isString) {
 
 ## 程序数据管理
 
-数据状态管理是本项目最有趣的尝试，用久了 `react-redux`，面对大量的 boilerplate、类型推导缺失（`typescript` 版倒是有类型了，只不过代码风格和体量又有点一言难尽）。不论如何，鉴于现在社区中利用自定义 `hooks` 取代传统数据管理的思路呼声很高，所以我想试试。于是设计了一个这样的自定义 `hooks`，给她命名为 `useInterviewModel`，她应该具备如下功能：
+数据状态管理是本项目最有趣的尝试，用久了 `react-redux`，面对大量的 boilerplate、类型推导缺失（`typescript` 版倒是有类型了，只不过风格和体量又有点一言难尽）。不论如何，鉴于现在社区中利用自定义 `hooks` 取代传统数据管理的思路呼声很高，所以我想试试。
+
+于是设计了一个这样的自定义 `hooks`，给她命名为 `useInterviewModel`，她应该具备如下功能：
 
 ```typescript
 // 之前定义的题目数据结构
@@ -365,7 +367,19 @@ export default function useInterviewModel() {
 
 但我的确需要在组成一个页面的多个组件中 share 上面定义的数据，不然那套数据就无意义了。于是设计一个可以把状态也共享的轮子，把 自定义 `hooks` 处理一下，并且能保证引用关系和类型被准确导出就显得很有必要了。
 
-万幸，这个东西在 `umi` 里已经有了，叫 [model](https://umijs.org/plugins/plugin-model)，实现原理可以参考[从 custom Hooks 到 shared Hooks ：hox 原理分析](https://zhuanlan.zhihu.com/p/89518937)，接下来问题就简单了，我上面定义的 `useInterviewModel` 无需做任何结构上的调整，只要补全实现，然后在各个组件里引用就大功告成了。
+万幸，这个东西在 `umi` 里已经有了，叫 [model](https://umijs.org/plugins/plugin-model)，下面我们来谈谈他的实现原理。工作原理示意图如下：
+
+<img :src="$withBase('/images/plugin-model.png')" alt="model" />
+
+设计思路正是利用了 `hooks` 的特性，外加观察者模式的一个小巧思：
+
+1. 创建一个全局的 `dispatcher` 作为主题（subject），存储数据，注册观察者，通知观察者
+2. 在根组件下创建若干 `Executor` 组件，每个 `Executor` 都引用一个我们编写的 `model`（标准自定义 `hooks`），这样，`model` 更新，就会触发 `Executor` 更新了
+3. `Executor` 更新时调用 `dispatcher` 通知所有的观察者最新的数据
+4. 再提供一个自定义 `hooks` 叫 `useModel`，她内部向 `dispatcher` 注册自己为观察者，开发者在组件中使用她来获取自己指定 `model` 里的内容
+
+至此，我们想用 `hooks` 做状态管理的希望就实现了。
+
 
 ## 展示结果
 
