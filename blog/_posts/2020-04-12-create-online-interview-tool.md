@@ -16,6 +16,9 @@ tags:
 
 答案肯定是『能』，愿意动手就行。于是有了本文涉及的这个小工具。
 
+
+等不及想看实际效果的，[来这里](https://github.com/leftstick/js-interview-online)
+
 ## 需求
 
 首先我们需要的是明确需求，这点所有研发的朋友都很了解。下面就来先梳理一下要完成的目标：
@@ -45,7 +48,7 @@ tags:
 
 ## 程序功能点分析
 
-因为熟练度关系，框架就选择了基于 `react` 的企业级应用开发框架 [umi](https://umijs.org/)。熟悉 `java` 的朋友可以把她理解成 前端 `react` 领域的 [srping-boot](https://spring.io/projects/spring-boot)，她提供了开发一个应用需要的各种技术（诸如：路由管理、权限控制、状态管理、调试、代码拆分等 ）的最佳实践以及配置，并以[Convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)作为指导思想提供了一系列便利开发者的接口，以此帮助开发者简化应用开发的成本。
+图省事就选择了基于 `react` 的企业级应用开发框架 [umi](https://umijs.org/)。熟悉 `java` 的朋友可以把她理解成 前端 `react` 领域的 [srping-boot](https://spring.io/projects/spring-boot)，她提供了开发一个应用需要的各种技术（诸如：路由管理、权限控制、状态管理、调试、代码拆分等 ）的最佳实践以及预配置，并以[Convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)作为指导思想提供了一系列便利开发者的接口，以此帮助开发者简化应用开发的成本。
 
 广告结束。。。
 
@@ -293,7 +296,7 @@ const testcaseExecFunc = function (assert, isString) {
 
 ## 程序数据管理
 
-数据状态管理是本项目最有趣的尝试，用久了 `react-redux`，面对大量的 boilerplate、类型推导缺失（`typescript` 版倒是有类型了，只不过风格和体量又有点一言难尽）。不论如何，鉴于现在社区中利用自定义 `hooks` 取代传统数据管理的思路呼声很高，所以我想试试。
+数据状态管理是本项目最有趣的尝试，用久了 `react-redux`，面对大量的 boilerplate、繁琐的结构，IDE无法提供有效帮助（自动补全、跳转。。。）。不论如何，鉴于现在社区中利用自定义 `hooks` 管理数据的思路呼声很高，所以我想试试。
 
 于是设计了一个这样的自定义 `hooks`，给她命名为 `useInterviewModel`，她应该具备如下功能：
 
@@ -365,7 +368,7 @@ export default function useInterviewModel() {
 
 > **Do two components using the same Hook share state?** No. Custom Hooks are a mechanism to reuse stateful logic (such as setting up a subscription and remembering the current value), but every time you use a custom Hook, all state and effects inside of it are fully isolated.
 
-但我的确需要在组成一个页面的多个组件中 share 上面定义的数据，不然那套数据就无意义了。于是设计一个可以把状态也共享的轮子，把 自定义 `hooks` 处理一下，并且能保证引用关系和类型被准确导出就显得很有必要了。
+那么，我的 `workingExam` 可怎么办？我就是希望能在多个组件中使用 `useInterviewModel` 时，`workingExam` 是共享的。不然 `useInterviewModel` 的设计就无意义了。于是搞一个可以把状态也共享的轮子，把 自定义 `hooks` 处理一下，并且能保证引用关系和类型被准确导出就显得很有必要了。
 
 万幸，这个东西在 `umi` 里已经有了，叫 [model](https://umijs.org/plugins/plugin-model)，下面我们来谈谈他的实现原理。工作原理示意图如下：
 
@@ -376,7 +379,7 @@ export default function useInterviewModel() {
 1. 创建一个全局的 `dispatcher` 作为主题（subject），存储数据，注册观察者，通知观察者
 2. 在根组件下创建若干 `Executor` 组件，每个 `Executor` 都引用一个我们编写的 `model`（标准自定义 `hooks`），这样，`model` 更新，就会触发 `Executor` 更新了
 3. `Executor` 更新时调用 `dispatcher` 通知所有的观察者最新的数据
-4. 再提供一个自定义 `hooks` 叫 `useModel`，她内部向 `dispatcher` 注册自己为观察者，开发者在组件中使用她来获取自己指定 `model` 里的内容
+4. 再提供一个自定义 `hooks` 叫 `useModel`，她内部向 `dispatcher` 注册自己为观察者，开发者在组件中使用她来获取自己指定 `model` 里的内容。当 `Executor` 更新时，`dispatcher` 通知所有的观察者，于是 `useModel` 收到了通知，并且通过 `setState` 驱动自身更新，这样，作为使用者，我们的组件就收到了数据更新
 
 至此，我们想用 `hooks` 做状态管理的希望就实现了。
 
