@@ -377,9 +377,9 @@ export default function useInterviewModel() {
 设计思路正是利用了 `hooks` 的特性，外加观察者模式的一个小巧思：
 
 1. 创建一个全局的 `dispatcher` 作为主题（subject），存储数据，注册观察者，通知观察者
-2. 在根组件下创建若干 `Executor` 组件，每个 `Executor` 都引用一个我们编写的 `model`（标准自定义 `hooks`），这样，`model` 更新，就会触发 `Executor` 更新了
+2. 在根组件下创建若干 `Executor` 组件，每个 `Executor` 都引用一个我们编写的 `model`（普普通通的自定义 `hooks`），这样，`model` 更新，就会触发 `Executor` 更新了
 3. `Executor` 更新时调用 `dispatcher` 通知所有的观察者最新的数据
-4. 再提供一个自定义 `hooks` 叫 `useModel`，她内部向 `dispatcher` 注册自己为观察者，开发者在组件中使用她来获取自己指定 `model` 里的内容。当 `Executor` 更新时，`dispatcher` 通知所有的观察者，于是 `useModel` 收到了通知，并且通过 `setState` 驱动自身更新，这样，作为使用者，我们的组件就收到了数据更新
+4. 再提供一个系统级的 `hooks` 叫 `useModel`，她内部向 `dispatcher` 注册自己为观察者，开发者在组件中使用她来获取自己指定 `model` 里的内容。当 `Executor` 更新时，`dispatcher` 通知所有的观察者，于是 `useModel` 收到了通知，并且通过 `setState` 驱动自身更新，这样，作为使用者，我们的组件就收到了数据更新
 
 至此，我们想用 `hooks` 做状态管理的希望就实现了。
 
