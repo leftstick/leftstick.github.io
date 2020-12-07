@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/leftstick/leftstick.github.io#readme",
   "devDependencies": {
+    "@vuepress/plugin-medium-zoom": "^1.7.1",
     "@vuepress/theme-blog": "^2.2.0",
     "vuepress": "^1.4.0"
   }

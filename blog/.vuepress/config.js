@@ -3,5 +3,13 @@ module.exports = {
   theme: '@vuepress/theme-blog',
   themeConfig: {
     // Please keep looking down to see the available options.
-  }
+  },
+  plugins: {
+    '@vuepress/medium-zoom': {
+      selector: '.content__default > p > img',
+      options: {
+        margin: 5
+      }
+    }
+  },
 }

@@ -4,3 +4,6 @@ node_modules
 # dist
 
 blog/.vuepress/dist
+
+# osx
+.DS_Store
